@@ -24,6 +24,9 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 14.16.1
-      - run: cd app && yarn install && yarn test
+      - name: Installing dependencies
+      - run: cd app && yarn install 
+      - name: Runing tests
+      - run: cd app && yarn test
      
       
