@@ -23,13 +23,8 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
-      - name: Installing yarn
-        run: cd app
-      
-      - name: npm/yarn/pnpm install
-        uses: Jaid/action-npm-install@v1.2.4
-        with:
-         packageManager: yarn
+      - name: action-yarn
+        uses: comchangs/action-yarn@v0.1-beta
 
       # Runs a single command using the runners shell
       - name: Run tests
