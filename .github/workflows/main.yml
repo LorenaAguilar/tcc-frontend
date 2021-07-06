@@ -42,7 +42,7 @@ jobs:
           heroku_app_name: womens-map-dev
           heroku_email:  ${{secrets.HEROKU_EMAIL}}
   deploy-prod:
-    needs: build
+    needs: deploy-dev
     name: Deploy to PROD - Heroku
     if: "contains(github.event.head_commit.message, 'move to prod')"
     runs-on: ubuntu-latest
