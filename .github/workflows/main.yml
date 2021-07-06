@@ -25,8 +25,8 @@ jobs:
         with:
           node-version: 14.16.1
       - name: Installing dependencies
-      - run: cd app && yarn install 
-      - name: Runing tests
-      - run: cd app && yarn test
+        run: cd app && yarn install 
+      - name: Running tests
+        run: cd app && yarn test
      
       
