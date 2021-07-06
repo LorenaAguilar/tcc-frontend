@@ -23,6 +23,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
+      - name: Installing yarn
+        run: cd app
+      
       - name: npm/yarn/pnpm install
         uses: Jaid/action-npm-install@v1.2.4
         with:
