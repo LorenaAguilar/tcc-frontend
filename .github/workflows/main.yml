@@ -28,5 +28,31 @@ jobs:
         run: cd app && yarn install 
       - name: Running tests
         run: cd app && yarn test
+        
+  deploy-dev:
+    needs: build
+    name: Deploy to DEV - Heroku
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          appdir: "app"
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: womens-map-dev
+          heroku_email:  ${{secrets.HEROKU_EMAIL}}
+  deploy-prod:
+    needs: build
+    name: Deploy to PROD - Heroku
+    if: "contains(github.event.head_commit.message, 'move to prod')"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          appdir: "app"
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: womens-map
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
      
       
