@@ -1,0 +1,73 @@
+{
+  "extends": [
+    "airbnb",
+    "prettier",
+    "plugin:react/recommended",
+    "airbnb/hooks",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "plugins": ["react", "prettier", "react-hooks"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "import/resolver": {
+      "node": { "extensions": [".ts", ".tsx", ".d.ts", ".js"] }
+    }
+  },
+  "ignorePatterns": ["**/setupTests.ts"],
+  "rules": {
+    "prettier/prettier": ["error", { "endOfLine": "auto" }],
+    "no-use-before-define": 0,
+    "import/no-extraneous-dependencies": [
+      "error",
+      { "devDependencies": ["**/*.test.ts", "**/*.test.tsx", "**/setupTests.ts"] }
+    ],
+    "import/no-unresolved": 0,
+    "import/extensions": [
+      2,
+      "ignorePackages",
+      {
+        "ts": "never",
+        "tsx": "never",
+        "js": "never"
+      }
+    ],
+    "no-restricted-syntax": 0,
+    "no-param-reassign": ["error", { "props": false }],
+    "object-literal-sort-keys": 0,
+    "react/prefer-stateless-function": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "react/jsx-wrap-multilines": 0,
+    "react/jsx-props-no-spreading": 0,
+    "react/prop-types": 0,
+    "react/require-default-props": 0,
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".tsx", ".jsx"]
+      }
+    ],
+    "max-params": ["off"],
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": "error",
+    "react-hooks/rules-of-hooks": "on",
+    "import/prefer-default-export": "on",
+    "react-hooks/exhaustive-deps": "on"
+  },
+  "env": {
+    "jest": true,
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "globals": {
+    "mockUseStyles": true,
+    "mockFormatMessage": true,
+    "done": true,
+    "fail": true
+  }
+}
