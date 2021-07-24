@@ -1,29 +1,17 @@
-import React, { Suspense, lazy, useMemo } from 'react';
+import React, { Suspense, lazy } from 'react';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 const HomeRoute = lazy(() => import('../routes/home/HomeRoute'));
 
 function AppRouter(): JSX.Element {
-  const loadingView = useMemo(
-    () => (
-      <div>
-        <CircularProgress />
-      </div>
-    ),
-    []
-  );
-
   return (
     <Router>
       <div>
-        <Suspense fallback={loadingView}>
+        <Suspense fallback={<CircularProgress />}>
           <div>
             <Switch>
-              <Route path="/test" component={HomeRoute} />
-            </Switch>
-            <Switch>
-              <Route path="/AS" component={CircularProgress} />
+              <Route path="/" component={HomeRoute} />
             </Switch>
           </div>
         </Suspense>
