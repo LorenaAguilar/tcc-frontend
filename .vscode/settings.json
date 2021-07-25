@@ -1,4 +1,5 @@
 {
+  "jestrunner.jestCommand": "yarn test",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
