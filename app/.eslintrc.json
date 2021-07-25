@@ -53,10 +53,7 @@
     ],
     "max-params": ["off"],
     "no-shadow": "off",
-    "@typescript-eslint/no-shadow": "error",
-    "react-hooks/rules-of-hooks": "on",
-    "import/prefer-default-export": "on",
-    "react-hooks/exhaustive-deps": "on"
+    "@typescript-eslint/no-shadow": "error"
   },
   "env": {
     "jest": true,
