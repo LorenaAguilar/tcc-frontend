@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense } from 'react';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import HomeRoute from '../pages/home/HomeRoute';
