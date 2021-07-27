@@ -25,9 +25,9 @@ jobs:
         with:
           node-version: 14.16.1
       - name: Installing dependencies
-        run: cd app && yarn install 
+        run: yarn install 
       - name: Running tests
-        run: cd app && yarn test
+        run: yarn test
         
   deploy-dev:
     needs: build
@@ -36,11 +36,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.12.12
-        with:
-          appdir: "app"
+        with: 
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: womens-map-dev
-          heroku_email:  ${{secrets.HEROKU_EMAIL}}
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
   deploy-prod:
     needs: deploy-dev
     name: Deploy to PROD - Heroku
@@ -49,8 +48,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.12.12
-        with:
-          appdir: "app"
+        with: 
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: womens-map
           heroku_email: ${{secrets.HEROKU_EMAIL}}
