@@ -1,13 +1,20 @@
 import React from 'react';
-import App from './App';
 import { shallow } from 'enzyme';
+import { ThemeProvider } from '@material-ui/core/styles';
+import App from './App';
 import AppRouter from './AppRouter';
+import theme from '../themes';
 
 describe('App', () => {
   it('should render AppRouter correctly', () => {
     const wrapper = shallow(<App />);
 
-    expect(wrapper.type()).toBe(AppRouter);
-    expect(wrapper.props()).toEqual({});
+    const expectedWrapper = (
+      <ThemeProvider theme={theme}>
+        <AppRouter />
+      </ThemeProvider>
+    );
+
+    expect(wrapper.matchesElement(expectedWrapper)).toBe(true);
   });
 });
