@@ -1,20 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import HomeRoute from './HomeRoute';
-import logo from '../../assets/logo.svg';
+import Map from './components/map/Map';
 
 describe('HomeRoute', () => {
-  it('should render correctly', async () => {
+  it('should render correctly', () => {
     const wrapper = shallow(<HomeRoute />);
 
-    const expectedWrapper = (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>Testing</p>
-        </header>
-      </div>
-    );
+    const expectedWrapper = <Map />;
     expect(wrapper.matchesElement(expectedWrapper)).toBe(true);
   });
 });
