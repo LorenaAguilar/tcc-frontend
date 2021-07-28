@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.12.2",
+    "@react-google-maps/api": "^1.9.4",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -53,6 +54,7 @@
   },
   "devDependencies": {
     "@types/enzyme": "^3.10.9",
+    "@types/googlemaps": "^3.43.3",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.3",
     "babel-eslint": "^10.1.0",
     "enzyme": "^3.11.0",
