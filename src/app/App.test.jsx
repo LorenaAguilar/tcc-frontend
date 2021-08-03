@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { ThemeProvider } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import App from './App';
 import AppRouter from './AppRouter';
 import theme from '../themes';
@@ -11,6 +12,7 @@ describe('App', () => {
 
     const expectedWrapper = (
       <ThemeProvider theme={theme}>
+        <CssBaseline />
         <AppRouter />
       </ThemeProvider>
     );

@@ -16,7 +16,6 @@ function AppRouter(): JSX.Element {
           <Route path="/aboutus" component={AboutUs} />
         </Switch>
       </Suspense>
-
       <Footer />
     </Router>
   );

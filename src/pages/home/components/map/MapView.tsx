@@ -11,18 +11,21 @@ interface Location {
 
 interface Props {
   location: Location;
+  children?: React.ReactNode;
 }
 
-function MapView({ location }: Props) {
+function MapView({ location, children }: Props): JSX.Element {
   const { container } = MapViewUseStyles();
 
   return (
     <Container>
       <LoadScript googleMapsApiKey={GOOGLE_API_KEY}>
-        <GoogleMap mapContainerClassName={container} center={location} zoom={DEFAULT_MAP_ZOOM} />
+        <GoogleMap mapContainerClassName={container} center={location} zoom={DEFAULT_MAP_ZOOM}>
+          {children ?? null}
+        </GoogleMap>
       </LoadScript>
     </Container>
   );
 }
 
-export default React.memo(MapView);
+export default MapView;

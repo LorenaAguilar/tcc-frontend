@@ -1,18 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import MapView from './MapView';
 
+interface Props {
+  children?: React.ReactNode;
+}
+
 interface Location {
   lat: number;
   lng: number;
 }
 
-function Map(): JSX.Element {
+function Map({ children }: Props): JSX.Element {
   const [location, setLocation] = useState<Location>({
     lat: -3.745,
     lng: -38.523,
   });
 
   useEffect(() => {
+    console.log('oi');
     navigator.geolocation.getCurrentPosition((position) => {
       setLocation({
         lat: position.coords.latitude,
@@ -21,7 +26,7 @@ function Map(): JSX.Element {
     });
   }, []);
 
-  return <MapView location={location} />;
+  return <MapView location={location}>{children ?? null}</MapView>;
 }
 
 export default Map;
