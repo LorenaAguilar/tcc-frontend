@@ -27,7 +27,7 @@ jobs:
       - name: Installing dependencies
         run: yarn install 
       - name: Running tests
-        run: yarn test
+        run: yarn jest
         
   deploy-dev:
     needs: build
