@@ -17,7 +17,6 @@ function Map({ children }: Props): JSX.Element {
   });
 
   useEffect(() => {
-    console.log('oi');
     navigator.geolocation.getCurrentPosition((position) => {
       setLocation({
         lat: position.coords.latitude,

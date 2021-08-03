@@ -18,7 +18,7 @@ describe('AppRouter', () => {
         <Header />
         <Suspense fallback={<CircularProgress />}>
           <Switch>
-            <Route path="/" component={HomeRoute} />
+            <Route exact path="/" component={HomeRoute} />
             <Route path="/aboutus" component={AboutUs} />
           </Switch>
         </Suspense>
