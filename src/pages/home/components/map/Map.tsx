@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-
 import MapView from './MapView';
 
 interface Location {

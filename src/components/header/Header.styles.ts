@@ -4,7 +4,7 @@ const HeaderStyles = makeStyles(() =>
   createStyles({
     container: {
       width: 'auto',
-      height: '100px',
+      height: '10vh',
       backgroundColor: '#751942',
     },
   })

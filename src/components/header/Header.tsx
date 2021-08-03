@@ -6,11 +6,7 @@ import HeaderStyles from './Header.styles';
 
 const Header: React.FunctionComponent = () => {
   const classes = HeaderStyles();
-  return (
-    <Box className={classes.container}>
-      <Button>teste</Button>
-    </Box>
-  );
+  return <Box className={classes.container} />;
 };
 
 export default Header;
