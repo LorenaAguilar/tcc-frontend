@@ -1,6 +1,6 @@
 import React from 'react';
 import Box from '@material-ui/core/Box';
-import Button from '../button/Button';
+import OptionMenu from '../optionMenu/OptionMenu';
 import HeaderStyles from './Header.styles';
 
 const Header: React.FunctionComponent = () => {
@@ -11,10 +11,10 @@ const Header: React.FunctionComponent = () => {
         <h1 className={classes.title}>BH mais segura para elas</h1>
       </div>
       <div>
-        <Button title="Home" />
-        <Button title="Ocorrência" />
-        <Button title="Ajuda" />
-        <Button title="Sobre nós" />
+        <OptionMenu title="Home" toUrl="" />
+        <OptionMenu title="Ocorrência" toUrl="ocurrences" />
+        <OptionMenu title="Ajuda" toUrl="help" />
+        <OptionMenu title="Sobre nós" toUrl="aboutus" />
       </div>
     </Box>
   );
