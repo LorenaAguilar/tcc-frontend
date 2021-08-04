@@ -13,8 +13,8 @@ const HeaderStyles = makeStyles(() =>
     title: {
       color: '#FFB7D7',
       fontSize: '20px',
-      paddingLeft: '16px',
-      width: '80%',
+      paddingTop: '5px',
+      width: '50%',
     },
     titleContainer: {
       display: 'flex',

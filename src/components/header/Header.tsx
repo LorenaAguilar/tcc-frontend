@@ -2,12 +2,14 @@ import React from 'react';
 import Box from '@material-ui/core/Box';
 import OptionMenu from '../optionMenu/OptionMenu';
 import HeaderStyles from './Header.styles';
+import WomanIcon from '../../assets/WomanIcon';
 
 const Header: React.FunctionComponent = () => {
   const classes = HeaderStyles();
   return (
     <Box className={classes.container}>
       <div className={classes.titleContainer}>
+        <WomanIcon />
         <h1 className={classes.title}>BH mais segura para elas</h1>
       </div>
       <div>
