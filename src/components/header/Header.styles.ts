@@ -5,7 +5,22 @@ const HeaderStyles = makeStyles(() =>
     container: {
       width: 'auto',
       height: '10vh',
-      backgroundColor: '#751942',
+      backgroundColor: '#641D3D',
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+    title: {
+      color: '#FFB7D7',
+      fontSize: '20px',
+      paddingLeft: '16px',
+      width: '80%',
+    },
+    titleContainer: {
+      display: 'flex',
+      alignItems: 'center',
+      height: '100%',
+      paddingLeft: '16px',
     },
   })
 );
