@@ -14,7 +14,7 @@ const OptionMenuStyles = makeStyles(() =>
       },
     },
     selected: {
-      borderBottom: '3px solid',
+      boxShadow: '0px 3px',
     },
   })
 );
