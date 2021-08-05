@@ -4,7 +4,7 @@ module.exports = {
   testEnvironment: 'jsdom',
   setupFiles: ['<rootDir>/src/setupTests.ts'],
 
-  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'json', 'jsx', 'node'],
   testRegex: '((\\.|/*.)(test))\\.[tj]sx?$',
 
   coverageDirectory: 'reports',
