@@ -1,5 +1,5 @@
 import React from 'react';
-import ContainerStyles from './Container.styles';
+import ContainerStyles from './container.styles';
 
 const Container: React.FunctionComponent = ({ children }) => {
   const classes = ContainerStyles();

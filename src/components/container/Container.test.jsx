@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ContainerStyles from './Container.styles';
+import ContainerStyles from './container.styles';
 import Container from './container';
 
 jest.mock('./Container.styles');
