@@ -17,6 +17,7 @@ module.exports = {
     '!src/**/*.d.ts',
     '!src/themes/*.js',
     '!src/constants.ts',
+    '!src/assets/*.tsx',
   ],
   coverageThreshold: {
     global: {
