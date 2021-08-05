@@ -4,6 +4,7 @@ import Box from '@material-ui/core/Box';
 import HeaderStyles from './Header.styles';
 import Header from './Header';
 import OptionMenu from '../optionMenu/OptionMenu';
+import WomanIcon from '../../assets/WomanIcon';
 
 jest.mock('./Header.styles');
 
@@ -16,6 +17,7 @@ describe('Header', () => {
     const expectedWrapper = (
       <Box className="container">
         <div className="titleContainer">
+          <WomanIcon />
           <h1 className="title">BH mais segura para elas</h1>
         </div>
         <div>
