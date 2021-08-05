@@ -2,7 +2,7 @@ import React from 'react';
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import { GOOGLE_API_KEY, DEFAULT_MAP_ZOOM } from '../../../../constants';
 import MapViewUseStyles from './MapView.styles';
-import Container from '../../../../components/container/container';
+import Container from '../../../../components/container/Container';
 
 interface Location {
   lat: number;
