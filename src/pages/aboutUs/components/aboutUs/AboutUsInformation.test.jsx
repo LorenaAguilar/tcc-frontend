@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Box from '@material-ui/core/Box';
 import AboutUsInformation from './AboutUsInformation';
-import Container from '../../../../components/container/Container';
+import Container from '../../../../components/container/container';
 import AboutUsInformationStyles from './AboutUsInformation.styles';
 
 jest.mock('./AboutUsInformation.styles');

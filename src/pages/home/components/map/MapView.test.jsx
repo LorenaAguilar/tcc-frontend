@@ -4,7 +4,7 @@ import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import { GOOGLE_API_KEY, DEFAULT_MAP_ZOOM } from '../../../../constants';
 import MapViewUseStyles from './MapView.styles';
 import MapView from './MapView';
-import Container from '../../../../components/container/Container';
+import Container from '../../../../components/container/container';
 
 jest.mock('./MapView.styles');
 
