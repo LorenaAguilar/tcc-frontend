@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import ContainerStyles from './container.styles';
 import Container from './container';
 
-jest.mock('./Container.styles');
+jest.mock('./container.styles');
 
 mockUseStyles(ContainerStyles, ['container']);
 
