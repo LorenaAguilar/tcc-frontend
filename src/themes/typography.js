@@ -19,7 +19,7 @@ export default {
     fontSize: '24px',
   },
   h4: {
-    color: palette.text.primary,
+    color: '#FFB7D7',
     fontWeight: 500,
     fontSize: '20px',
   },
