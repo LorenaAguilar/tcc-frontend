@@ -2,7 +2,6 @@ import { Circle } from '@react-google-maps/api';
 import React from 'react';
 import Container from '../../components/container/container';
 import Map from './components/map/Map';
-import Markers from './components/markers/Markers';
 
 function App(): JSX.Element {
   const options = {
@@ -21,14 +20,13 @@ function App(): JSX.Element {
   return (
     <Container>
       <Map>
-        <Markers />
         <Circle
           options={options}
           center={{ lat: -19.801664961293064, lng: -43.93884010963926 }}
           radius={300}
         />
         <Circle
-          options={{ ...options, fillColor: 'yellow', strokeColor: 'yellow' }}
+          options={{ ...options, fillColor: 'red', strokeColor: 'red' }}
           center={{ lat: -19.797283810269978, lng: -43.92042411918701 }}
           radius={300}
         />
