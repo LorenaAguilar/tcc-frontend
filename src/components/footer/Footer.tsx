@@ -8,7 +8,7 @@ const Footer: React.FunctionComponent = () => {
   return (
     <Box className={classes.container}>
       <div className={classes.textContainer}>
-        <Typography variant="h4">
+        <Typography variant="h4" className={classes.text}>
           Copyright © 2021 BH mais segura para elas. Todos os direitos reservados.
         </Typography>
       </div>

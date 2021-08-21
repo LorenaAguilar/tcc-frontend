@@ -5,12 +5,15 @@ const FooterStyles = makeStyles(() =>
     container: {
       width: '100%',
       height: '7vh',
-      backgroundColor: '#751942',
+      backgroundColor: '#FADCE6',
       position: 'fixed',
       bottom: '0',
       left: '0',
+      boxShadow: 'inset 0px 3px #d53d87',
     },
-    text: {},
+    text: {
+      color: '#000000',
+    },
     textContainer: {
       display: 'flex',
       alignItems: 'center',

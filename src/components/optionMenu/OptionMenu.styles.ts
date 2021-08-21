@@ -4,17 +4,17 @@ const OptionMenuStyles = makeStyles(() =>
   createStyles({
     container: {
       height: '100%',
-      color: '#FFB7D7',
+      color: '#000000',
       fontSize: '20px',
-      fontWeight: 500,
+      fontWeight: 'bold',
       marginRight: '20px',
       '&:hover': {
         color: '#E63E89',
-        backgroundColor: '#5C1434',
+        backgroundColor: '#FADCE6',
       },
     },
     selected: {
-      boxShadow: '0px 3px',
+      boxShadow: '0px 5px #D53D87',
     },
   })
 );

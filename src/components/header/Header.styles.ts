@@ -5,13 +5,15 @@ const HeaderStyles = makeStyles(() =>
     container: {
       width: 'auto',
       height: '10vh',
-      backgroundColor: '#641D3D',
+      backgroundColor: '#FADCE6',
       display: 'flex',
       flexDirection: 'row',
       justifyContent: 'space-between',
+      marginBottom: '3px',
+      boxShadow: '0px 3px #D53D87',
     },
     title: {
-      color: '#FFB7D7',
+      color: '#000000',
       fontSize: '20px',
       paddingTop: '5px',
       width: '50%',
