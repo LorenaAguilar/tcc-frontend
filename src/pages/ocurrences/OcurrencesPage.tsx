@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Container from '../../components/container/container';
-import CreateOccurrenceModal from './components/CreateOccurrenceModal';
+import CreateOccurrenceModal from './components/createOccurrenceModal/CreateOccurrenceModal';
 
 const OccurrencesPage: React.FunctionComponent = () => {
   const [isCreateOccurrenceModalOpen, setIsCreateOccurrenceModalOpen] = useState<boolean>(false);
