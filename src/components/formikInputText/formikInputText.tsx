@@ -28,13 +28,12 @@ const FormikInputText: React.FunctionComponent<Props> = ({ label, name }) => {
         };
 
         return (
-          <>
+          <div>
             <InputLabel className={labelStyle} error={hasError}>
               {label}
             </InputLabel>
             <TextField
-              helperText={meta.error}
-              required
+              helperText={hasError && meta.error}
               fullWidth
               variant="outlined"
               onChange={field.onChange}
@@ -43,7 +42,7 @@ const FormikInputText: React.FunctionComponent<Props> = ({ label, name }) => {
               value={field.value || ''}
               name={field.name}
             />
-          </>
+          </div>
         );
       }}
     </Field>
