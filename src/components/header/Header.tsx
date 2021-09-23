@@ -1,8 +1,8 @@
-import React from 'react';
 import Box from '@material-ui/core/Box';
+import React from 'react';
+import WomanIcon from '../../assets/WomanIcon';
 import OptionMenu from '../optionMenu/OptionMenu';
 import HeaderStyles from './Header.styles';
-import WomanIcon from '../../assets/WomanIcon';
 
 const Header: React.FunctionComponent = () => {
   const classes = HeaderStyles();
@@ -14,7 +14,7 @@ const Header: React.FunctionComponent = () => {
       </div>
       <div>
         <OptionMenu title="Home" toUrl="" />
-        <OptionMenu title="Ocorrência" toUrl="ocurrences" />
+        <OptionMenu title="Ocorrência" toUrl="occurrences" />
         <OptionMenu title="Ajuda" toUrl="help" />
         <OptionMenu title="Sobre nós" toUrl="aboutus" />
       </div>

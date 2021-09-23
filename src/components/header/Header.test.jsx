@@ -1,10 +1,10 @@
-import React from 'react';
-import { shallow } from 'enzyme';
 import Box from '@material-ui/core/Box';
-import HeaderStyles from './Header.styles';
-import Header from './Header';
-import OptionMenu from '../optionMenu/OptionMenu';
+import { shallow } from 'enzyme';
+import React from 'react';
 import WomanIcon from '../../assets/WomanIcon';
+import OptionMenu from '../optionMenu/OptionMenu';
+import Header from './Header';
+import HeaderStyles from './Header.styles';
 
 jest.mock('./Header.styles');
 
@@ -22,7 +22,7 @@ describe('Header', () => {
         </div>
         <div>
           <OptionMenu title="Home" toUrl="" />
-          <OptionMenu title="Ocorrência" toUrl="ocurrences" />
+          <OptionMenu title="Ocorrência" toUrl="occurrences" />
           <OptionMenu title="Ajuda" toUrl="help" />
           <OptionMenu title="Sobre nós" toUrl="aboutus" />
         </div>

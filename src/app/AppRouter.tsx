@@ -15,7 +15,7 @@ function AppRouter(): JSX.Element {
         <Switch>
           <Route exact path="/" component={HomeRoute} />
           <Route path="/aboutus" component={AboutUs} />
-          <Route path="/ocurrences" component={OccurrencesPage} />
+          <Route path="/occurrences" component={OccurrencesPage} />
         </Switch>
       </Suspense>
       <Footer />
