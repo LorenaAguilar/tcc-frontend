@@ -1,12 +1,9 @@
 import { createStyles, makeStyles } from '@material-ui/core';
 
-const useAutoCompletePlacesStyles = makeStyles(() =>
+const useFormikInputDateTimeStyles = makeStyles(() =>
   createStyles({
-    icon: {
-      marginRight: 8,
-    },
     labelStyle: {
-      marginBottom: 8,
+      marginBottom: '8px',
     },
     helperText: {
       alignSelf: 'self-end',
@@ -14,4 +11,4 @@ const useAutoCompletePlacesStyles = makeStyles(() =>
   })
 );
 
-export default useAutoCompletePlacesStyles;
+export default useFormikInputDateTimeStyles;

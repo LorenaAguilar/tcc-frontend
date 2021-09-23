@@ -12,7 +12,7 @@ interface Props {
 }
 
 const FormikInputText: React.FunctionComponent<Props> = ({ label, name, options }) => {
-  const { labelStyle } = useFormikInputSelectStyles();
+  const { labelStyle, helperText } = useFormikInputSelectStyles();
 
   return (
     <Field name={name}>
@@ -38,6 +38,7 @@ const FormikInputText: React.FunctionComponent<Props> = ({ label, name, options 
                   helperText={hasError && meta.error}
                   fullWidth
                   name={field.name}
+                  FormHelperTextProps={{ classes: { root: helperText } }}
                 />
               )}
               fullWidth

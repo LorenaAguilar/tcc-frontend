@@ -10,7 +10,7 @@ interface Props {
 }
 
 const FormikInputText: React.FunctionComponent<Props> = ({ label, name }) => {
-  const { labelStyle } = useFormikInputTextStyles();
+  const { labelStyle, helperText } = useFormikInputTextStyles();
 
   return (
     <Field name={name}>
@@ -40,6 +40,7 @@ const FormikInputText: React.FunctionComponent<Props> = ({ label, name }) => {
               onBlur={onBlur}
               error={hasError}
               value={field.value || ''}
+              FormHelperTextProps={{ classes: { root: helperText } }}
               name={field.name}
             />
           </div>

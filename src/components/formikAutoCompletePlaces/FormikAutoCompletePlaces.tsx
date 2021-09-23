@@ -47,7 +47,7 @@ function loadScript(src: string, position: HTMLElement | null, id: string) {
 const autocompleteService = { current: null };
 
 const AutoCompletePlaces: React.FunctionComponent<Props> = ({ name, label }) => {
-  const { labelStyle, icon } = useAutoCompletePlacesStyles();
+  const { labelStyle, icon, helperText } = useAutoCompletePlacesStyles();
 
   const [value, setValue] = React.useState<PlaceType | null>(null);
   const [inputValue, setInputValue] = React.useState('');
@@ -112,7 +112,7 @@ const AutoCompletePlaces: React.FunctionComponent<Props> = ({ name, label }) => 
 
   return (
     <Field name={name}>
-      {({ form, meta }: FieldProps) => {
+      {({ form, meta, field }: FieldProps) => {
         const hasError = Boolean(meta.touched && meta.error);
         console.log(form.errors, form.touched, value);
         return (
@@ -146,7 +146,9 @@ const AutoCompletePlaces: React.FunctionComponent<Props> = ({ name, label }) => 
                   variant="outlined"
                   error={hasError}
                   helperText={hasError && meta.error}
+                  name={field.name}
                   fullWidth
+                  FormHelperTextProps={{ classes: { root: helperText } }}
                 />
               )}
               renderOption={(option) => {

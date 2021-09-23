@@ -5,6 +5,9 @@ const useFormikInputTextStyles = makeStyles(() =>
     labelStyle: {
       marginBottom: '8px',
     },
+    helperText: {
+      alignSelf: 'self-end',
+    },
   })
 );
 
