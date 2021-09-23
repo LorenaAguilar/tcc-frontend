@@ -7,6 +7,8 @@ import FormikInputSelect from '../../../../components/formikInputSelect/FormikIn
 import FormikInputText from '../../../../components/formikInputText/formikInputText';
 import FormikInputTime from '../../../../components/formikInputTime/FormikInputTime';
 import Modal from '../../../../components/modal/Modal';
+import TypeNotification from '../../../../domains/Notification';
+import { addNotification } from '../../../../stores/notificationList/NotificationListEvents';
 import useCreateOccurrenceModalStyles from './CreateOccorrenceModal.styles';
 
 interface Props {
@@ -19,6 +21,14 @@ const CreateOccurrenceModal: React.FunctionComponent<Props> = ({ isOpen, onClose
 
   const onSubmit = useCallback((values, { setSubmitting }) => {
     alert(JSON.stringify(values, null, 2));
+    addNotification({
+      message: 'Deu certo',
+      type: TypeNotification.SUCCESS,
+    });
+    addNotification({
+      message: 'Deu ERRADO',
+      type: TypeNotification.ERROR,
+    });
     setSubmitting(false);
   }, []);
 

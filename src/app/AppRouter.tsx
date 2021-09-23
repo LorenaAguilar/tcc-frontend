@@ -3,6 +3,7 @@ import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Footer from '../components/footer/Footer';
 import Header from '../components/header/Header';
+import Notification from '../components/notification/Notification';
 import AboutUs from '../pages/aboutUs/AboutUs';
 import HomeRoute from '../pages/home/HomeRoute';
 import OccurrencesPage from '../pages/ocurrences/OcurrencesPage';
@@ -12,6 +13,7 @@ function AppRouter(): JSX.Element {
     <Router>
       <Header />
       <Suspense fallback={<CircularProgress />}>
+        <Notification />
         <Switch>
           <Route exact path="/" component={HomeRoute} />
           <Route path="/aboutus" component={AboutUs} />
