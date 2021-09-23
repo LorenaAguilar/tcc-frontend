@@ -5,9 +5,6 @@ const useAutoCompletePlacesStyles = makeStyles(() =>
     icon: {
       marginRight: 8,
     },
-    labelStyle: {
-      marginBottom: 8,
-    },
     helperText: {
       alignSelf: 'self-end',
     },

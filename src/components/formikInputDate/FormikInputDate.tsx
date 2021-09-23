@@ -1,18 +1,19 @@
 import DateFnsUtils from '@date-io/date-fns';
-import InputLabel from '@material-ui/core/InputLabel';
 import { KeyboardDatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
 import 'date-fns';
 import { Field, FieldProps } from 'formik';
 import React from 'react';
+import InputLabel from '../inputLabel/InputLabel';
 import useFormikInputDateTimeStyles from './FormikInputDate.styles';
 
 interface Props {
   label: string;
   name: string;
+  required?: boolean;
 }
 
-const FormikInputDateTime: React.FunctionComponent<Props> = ({ label, name }) => {
-  const { labelStyle, helperText } = useFormikInputDateTimeStyles();
+const FormikInputDateTime: React.FunctionComponent<Props> = ({ label, name, required }) => {
+  const { helperText } = useFormikInputDateTimeStyles();
 
   return (
     <Field name={name}>
@@ -21,9 +22,7 @@ const FormikInputDateTime: React.FunctionComponent<Props> = ({ label, name }) =>
 
         return (
           <div>
-            <InputLabel className={labelStyle} error={hasError}>
-              {label}
-            </InputLabel>
+            <InputLabel label={label} required={required} hasError={hasError} />
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
               <KeyboardDatePicker
                 format="dd/MM/yyyy"

@@ -1,18 +1,19 @@
-import InputLabel from '@material-ui/core/InputLabel';
 import TextField from '@material-ui/core/TextField';
 import { Autocomplete } from '@material-ui/lab';
 import { Field, FieldProps } from 'formik';
 import React from 'react';
+import InputLabel from '../inputLabel/InputLabel';
 import useFormikInputSelectStyles from './FormikInputSelect.styles';
 
 interface Props {
   name: string;
   label: string;
   options: Array<string>;
+  required?: boolean;
 }
 
-const FormikInputText: React.FunctionComponent<Props> = ({ label, name, options }) => {
-  const { labelStyle, helperText } = useFormikInputSelectStyles();
+const FormikInputText: React.FunctionComponent<Props> = ({ label, name, options, required }) => {
+  const { helperText } = useFormikInputSelectStyles();
 
   return (
     <Field name={name}>
@@ -21,9 +22,7 @@ const FormikInputText: React.FunctionComponent<Props> = ({ label, name, options 
 
         return (
           <div>
-            <InputLabel className={labelStyle} error={hasError}>
-              {label}
-            </InputLabel>
+            <InputLabel label={label} required={required} hasError={hasError} />
             <Autocomplete
               value={field.value}
               onChange={(_event: any, newValue: string) => {

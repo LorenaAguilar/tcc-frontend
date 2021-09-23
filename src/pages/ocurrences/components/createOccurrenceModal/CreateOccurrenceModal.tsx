@@ -57,19 +57,21 @@ const CreateOccurrenceModal: React.FunctionComponent<Props> = ({ isOpen, onClose
             onSubmit={handleSubmit}
           >
             <div className={container}>
-              <FormikInputDate label="Data" name="date" />
-              <FormikInputTime label="Hora" name="time" />
-              <FormikAutoCompletePlaces label="Endereço" name="address" />
+              <FormikInputDate label="Data" name="date" required />
+              <FormikInputTime label="Hora" name="time" required />
+              <FormikAutoCompletePlaces label="Endereço" name="address" required />
               <FormikInputSelect
                 label="Tipo da ocorrência"
                 name="occurrenceType"
+                required
                 options={['Teste1', 'Teste2', 'Teste3']}
               />
               <FormikInputText
                 label="Especificação do tipo da ocorrência"
                 name="occurrenceTypeDescription"
+                required
               />
-              <FormikInputText label="Descrição" name="description" />
+              <FormikInputText label="Descrição" name="description" required />
             </div>
           </Modal>
         );

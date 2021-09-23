@@ -2,8 +2,8 @@ import { createStyles, makeStyles } from '@material-ui/core';
 
 const useFormikInputDateTimeStyles = makeStyles(() =>
   createStyles({
-    helperText: {
-      alignSelf: 'self-end',
+    labelStyle: {
+      marginBottom: '8px',
     },
   })
 );

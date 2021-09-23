@@ -1,16 +1,17 @@
-import InputLabel from '@material-ui/core/InputLabel';
 import TextField from '@material-ui/core/TextField';
 import { Field, FieldProps } from 'formik';
 import React from 'react';
+import InputLabel from '../inputLabel/InputLabel';
 import useFormikInputTextStyles from './formikInputText.styles';
 
 interface Props {
   name: string;
   label: string;
+  required?: boolean;
 }
 
-const FormikInputText: React.FunctionComponent<Props> = ({ label, name }) => {
-  const { labelStyle, helperText } = useFormikInputTextStyles();
+const FormikInputText: React.FunctionComponent<Props> = ({ label, name, required }) => {
+  const { helperText } = useFormikInputTextStyles();
 
   return (
     <Field name={name}>
@@ -29,9 +30,7 @@ const FormikInputText: React.FunctionComponent<Props> = ({ label, name }) => {
 
         return (
           <div>
-            <InputLabel className={labelStyle} error={hasError}>
-              {label}
-            </InputLabel>
+            <InputLabel label={label} required={required} hasError={hasError} />
             <TextField
               helperText={hasError && meta.error}
               fullWidth

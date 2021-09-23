@@ -1,6 +1,5 @@
 /* eslint-disable camelcase */
 import Grid from '@material-ui/core/Grid';
-import InputLabel from '@material-ui/core/InputLabel';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
@@ -10,11 +9,13 @@ import { Field, FieldProps } from 'formik';
 import throttle from 'lodash/throttle';
 import React, { useEffect, useMemo } from 'react';
 import { GOOGLE_API_KEY } from '../../constants';
+import InputLabel from '../inputLabel/InputLabel';
 import useAutoCompletePlacesStyles from './FormikAutoCompletePlaces.styles';
 
 interface Props {
   label: string;
   name: string;
+  required?: boolean;
 }
 
 interface PlaceType {
@@ -46,8 +47,8 @@ function loadScript(src: string, position: HTMLElement | null, id: string) {
 
 const autocompleteService = { current: null };
 
-const AutoCompletePlaces: React.FunctionComponent<Props> = ({ name, label }) => {
-  const { labelStyle, icon, helperText } = useAutoCompletePlacesStyles();
+const AutoCompletePlaces: React.FunctionComponent<Props> = ({ name, label, required }) => {
+  const { icon, helperText } = useAutoCompletePlacesStyles();
 
   const [value, setValue] = React.useState<PlaceType | null>(null);
   const [inputValue, setInputValue] = React.useState('');
@@ -114,12 +115,9 @@ const AutoCompletePlaces: React.FunctionComponent<Props> = ({ name, label }) => 
     <Field name={name}>
       {({ form, meta, field }: FieldProps) => {
         const hasError = Boolean(meta.touched && meta.error);
-        console.log(form.errors, form.touched, value);
         return (
           <div>
-            <InputLabel className={labelStyle} error={hasError}>
-              {label}
-            </InputLabel>
+            <InputLabel label={label} required={required} hasError={hasError} />
             <Autocomplete
               getOptionLabel={(option) =>
                 typeof option === 'string' ? option : option.description
