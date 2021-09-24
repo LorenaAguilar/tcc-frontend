@@ -7,8 +7,7 @@ import FormikInputSelect from '../../../../components/formikInputSelect/FormikIn
 import FormikInputText from '../../../../components/formikInputText/formikInputText';
 import FormikInputTime from '../../../../components/formikInputTime/FormikInputTime';
 import Modal from '../../../../components/modal/Modal';
-import TypeNotification from '../../../../domains/Notification';
-import { addNotification } from '../../../../stores/notificationList/NotificationListEvents';
+import CreateOccurrenceUseCase from '../../../../usecases/occurrences/createOcurrence/CreateOccurrenceUseCase';
 import useCreateOccurrenceModalStyles from './CreateOccorrenceModal.styles';
 
 interface Props {
@@ -20,14 +19,18 @@ const CreateOccurrenceModal: React.FunctionComponent<Props> = ({ isOpen, onClose
   const { container } = useCreateOccurrenceModalStyles();
 
   const onSubmit = useCallback((values, { setSubmitting }) => {
-    alert(JSON.stringify(values, null, 2));
-    addNotification({
-      message: 'Deu certo',
-      type: TypeNotification.SUCCESS,
-    });
-    addNotification({
-      message: 'Deu ERRADO',
-      type: TypeNotification.ERROR,
+    const dateAux = new Date(values.date);
+    const timeAux = new Date(values.time);
+
+    const formattedDate = new Date();
+    formattedDate.setDate(dateAux.getDate());
+    formattedDate.setTime(timeAux.getTime());
+    CreateOccurrenceUseCase({
+      authorName: 'Gustavo Sena',
+      dateTime: formattedDate,
+      description: values.description,
+      placeId: values.address,
+      type: values.occurrenceType,
     });
     setSubmitting(false);
   }, []);
@@ -74,7 +77,7 @@ const CreateOccurrenceModal: React.FunctionComponent<Props> = ({ isOpen, onClose
                 label="Tipo da ocorrência"
                 name="occurrenceType"
                 required
-                options={['Teste1', 'Teste2', 'Teste3']}
+                options={['Iluminação', 'Assédio Sexual', 'Morte', 'Assalto']}
               />
               <FormikInputText
                 label="Especificação do tipo da ocorrência"
