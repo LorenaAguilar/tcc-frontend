@@ -12,6 +12,6 @@ export default function createOccurrence(command: {
   type: string;
 }): Promise<void> {
   return restClient()
-    .post(endpoint, command)
+    .post(endpoint, JSON.stringify(command))
     .then((response) => response.data);
 }

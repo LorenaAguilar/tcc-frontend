@@ -5,6 +5,7 @@ export default function restClient(
 ): AxiosInstance {
   const instance = axios.create({
     baseURL: `${baseUrl}`,
+    headers: { 'content-type': 'application/json' },
   });
 
   return instance;
