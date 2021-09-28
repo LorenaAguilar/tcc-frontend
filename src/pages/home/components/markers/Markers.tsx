@@ -1,38 +1,39 @@
-import React, { useState } from 'react';
 import { Marker, MarkerClusterer } from '@react-google-maps/api';
+import { useStoreMap } from 'effector-react';
+import React, { useState } from 'react';
 import Alert from '../../../../assets/AlertIcon.svg';
+import Occurrence from '../../../../domains/Occurrence';
+import HomePageStore from '../../../../stores/homePage/HomePageStore';
 import InformationWindow from '../infoWindow/InfoWindow';
 
-interface Location {
-  lat: number;
-  lng: number;
-}
-
-interface Props {
-  locations: Array<Location>;
-}
-
-const Markers: React.FunctionComponent<Props> = ({ locations }) => {
-  const [selected, setSelected] = useState<Location | null>();
+const Markers: React.FunctionComponent = () => {
+  const occurrences = useStoreMap({
+    store: HomePageStore,
+    keys: [],
+    fn: (state) => state.occurrences,
+  });
+  const [selected, setSelected] = useState<Occurrence | null>();
 
   return (
     <>
       <MarkerClusterer>
         {(clusterer) =>
-          locations.map((marker) => (
+          occurrences.map((occurrence) => (
             <Marker
-              key={`${marker.lat}-${marker.lng}`}
-              position={marker}
+              key={`${occurrence.location.lat}-${occurrence.location.lng}`}
+              position={occurrence.location}
               clusterer={clusterer}
               icon={Alert}
               onClick={() => {
-                setSelected(marker);
+                setSelected(occurrence);
               }}
             />
           ))
         }
       </MarkerClusterer>
-      {selected ? <InformationWindow selected={selected} setSelected={setSelected} /> : null}
+      {selected ? (
+        <InformationWindow occurreceSelected={selected} setOccurrenceSelected={setSelected} />
+      ) : null}
     </>
   );
 };

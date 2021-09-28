@@ -1,30 +1,20 @@
-import React from 'react';
-import { InfoWindow } from '@react-google-maps/api';
 import { Box, Typography } from '@material-ui/core';
-
-interface Location {
-  lat: number;
-  lng: number;
-}
+import { InfoWindow } from '@react-google-maps/api';
+import React from 'react';
+import Occurrence from '../../../../domains/Occurrence';
 
 interface Props {
-  selected: Location;
-  setSelected: (location: Location | null) => void;
-  locationOcurrence?: string;
-  descriptionOcurrence?: string;
-  dateOcurrence?: string;
+  occurreceSelected: Occurrence;
+  setOccurrenceSelected: (location: Occurrence | null) => void;
 }
 
 const InformationWindow: React.FunctionComponent<Props> = ({
-  selected,
-  setSelected,
-  locationOcurrence,
-  descriptionOcurrence,
-  dateOcurrence,
+  occurreceSelected,
+  setOccurrenceSelected: setSelected,
 }) => (
   <>
     <InfoWindow
-      position={{ lat: selected.lat, lng: selected.lng }}
+      position={{ lat: occurreceSelected.location.lat, lng: occurreceSelected.location.lng }}
       onCloseClick={() => {
         setSelected(null);
       }}
@@ -32,21 +22,14 @@ const InformationWindow: React.FunctionComponent<Props> = ({
       <Box>
         {/* Colocar um scroll para a caixinha não ficar tão larga ou tão grande */}
         <Typography>Data: </Typography>
-        <Typography>{dateOcurrence}</Typography>
+        <Typography>{occurreceSelected.dateTime.toDateString()}</Typography>
         <Typography>Localização: </Typography>
-        <Typography>{locationOcurrence}</Typography>
+        <Typography>{occurreceSelected.location.address}</Typography>
         <Typography>Descrição: </Typography>
-        <Typography>{descriptionOcurrence}</Typography>
+        <Typography>{occurreceSelected.description}</Typography>
       </Box>
     </InfoWindow>
   </>
 );
-
-InformationWindow.defaultProps = {
-  locationOcurrence: 'Rua Madre de Deus, bairro Ouro Minas ?nº 362',
-  descriptionOcurrence:
-    'Na noite do dia 13, eu estava andando pela rua, quando vieram dois homens em uma moto e me assaltaram',
-  dateOcurrence: '13/02/2021',
-};
 
 export default InformationWindow;

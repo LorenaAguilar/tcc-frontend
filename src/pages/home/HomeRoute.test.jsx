@@ -1,7 +1,7 @@
-import React from 'react';
 import { shallow } from 'enzyme';
-import HomeRoute from './HomeRoute';
+import React from 'react';
 import Map from './components/map/Map';
+import HomeRoute from './HomeRoute';
 
 describe('HomeRoute', () => {
   it('should render correctly', () => {
