@@ -6,7 +6,9 @@ module.exports = {
 
   moduleFileExtensions: ['ts', 'tsx', 'js', 'json', 'jsx', 'node'],
   testRegex: '((\\.|/*.)(test))\\.[tj]sx?$',
-
+  moduleNameMapper: {
+    '^.+\\.svg$': '<rootDir>/src/__mocks__/svgMock.ts',
+  },
   coverageDirectory: 'reports',
   coverageReporters: ['cobertura', 'html', 'lcov', 'text-summary', 'text'],
   collectCoverageFrom: [
@@ -18,6 +20,7 @@ module.exports = {
     '!src/themes/*.js',
     '!src/constants.ts',
     '!src/assets/*.tsx',
+    '!src/assets/*.svg',
   ],
   coverageThreshold: {
     global: {
