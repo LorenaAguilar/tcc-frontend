@@ -1,11 +1,11 @@
-import { configure } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import { configure } from 'enzyme';
 import React from 'react';
-import { once } from 'lodash';
+import 'regenerator-runtime/runtime';
 
 configure({ adapter: new Adapter() });
 
-jest.spyOn(React, 'useEffect').mockImplementation((f) => once(f));
+jest.spyOn(React, 'useEffect').mockImplementation((f) => f());
 jest.spyOn(React, 'useCallback').mockImplementation((f) => f);
 jest.spyOn(React, 'useMemo').mockImplementation((f) => f());
 
