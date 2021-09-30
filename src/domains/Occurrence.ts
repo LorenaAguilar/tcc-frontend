@@ -5,6 +5,7 @@ interface Occurrence {
   dateTime: Date;
   location: OccurrenceLocation;
   description: string;
+  type: string;
 }
 
 export default Occurrence;

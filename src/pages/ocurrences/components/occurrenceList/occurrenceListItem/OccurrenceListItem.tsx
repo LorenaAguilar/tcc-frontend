@@ -51,7 +51,7 @@ const OccurrenceListItem: React.FunctionComponent<Props> = ({ occurrenceId }) =>
         subheader={formattedTime}
       />
       <CardContent>
-        <Chip variant="outlined" label={occurrence.id} className={test} />
+        <Chip variant="outlined" label={occurrence.type} className={test} />
 
         <Typography variant="body2" component="p">
           <b> Descrição da ocorrência: </b>

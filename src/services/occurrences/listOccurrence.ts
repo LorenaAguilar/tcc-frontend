@@ -10,6 +10,7 @@ interface OccurrenceResponse {
   lng: number;
   address: string;
   description: string;
+  type: string;
 }
 
 export default function listOccurrence(): Promise<Array<Occurrence>> {
@@ -22,6 +23,7 @@ const OccurrenceResponseToOccurrence = (occurrence: OccurrenceResponse): Occurre
   description: occurrence.description,
   dateTime: new Date(occurrence.dateTime),
   id: occurrence.id,
+  type: occurrence.type,
   location: {
     address: occurrence.address,
     lat: occurrence.lat,
