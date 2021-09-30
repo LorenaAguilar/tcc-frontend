@@ -33,7 +33,8 @@ describe('CreateOccurrenceModal', () => {
   });
 
   it('should handle the onSubmit', () => {
-    const wrapper = shallow(<CreateOccurrenceModal />);
+    const mockedOnClose = jest.fn();
+    const wrapper = shallow(<CreateOccurrenceModal onClose={mockedOnClose} />);
     const values = {
       date: 'date',
       time: 'time',
@@ -48,6 +49,8 @@ describe('CreateOccurrenceModal', () => {
 
     expect(mockedSetSubmitting).toHaveBeenCalledTimes(1);
     expect(mockedSetSubmitting).toHaveBeenCalledWith(false);
+    expect(mockedOnClose).toHaveBeenCalledTimes(1);
+    expect(mockedOnClose).toHaveBeenCalledWith();
   });
 
   it('should render the form correctly', () => {
