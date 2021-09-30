@@ -10,6 +10,9 @@ const OcurrenceListItemStyle = makeStyles(() =>
     test: {
       marginBottom: 5,
     },
+    contentCard: {
+      paddingTop: 0,
+    },
   })
 );
 

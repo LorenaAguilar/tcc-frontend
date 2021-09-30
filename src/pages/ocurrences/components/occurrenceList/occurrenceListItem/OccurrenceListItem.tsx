@@ -17,7 +17,7 @@ interface Props {
 }
 
 const OccurrenceListItem: React.FunctionComponent<Props> = ({ occurrenceId }) => {
-  const { root, test } = useOccurrenceListItemStyles();
+  const { root, test, contentCard } = useOccurrenceListItemStyles();
   const occurrence = useStoreMap({
     store: HomePageStore,
     keys: [],
@@ -26,7 +26,9 @@ const OccurrenceListItem: React.FunctionComponent<Props> = ({ occurrenceId }) =>
 
   const formattedTime = useMemo(
     () =>
-      `${occurrence?.dateTime?.getHours()}:${occurrence?.dateTime?.getMinutes()} ${occurrence?.dateTime?.toLocaleDateString()}`,
+      `${occurrence?.dateTime
+        .toLocaleTimeString()
+        .substring(0, 5)} ${occurrence?.dateTime?.toLocaleDateString()}`,
     [occurrence]
   );
 
@@ -50,7 +52,7 @@ const OccurrenceListItem: React.FunctionComponent<Props> = ({ occurrenceId }) =>
         title={occurrence.location.address}
         subheader={formattedTime}
       />
-      <CardContent>
+      <CardContent className={contentCard}>
         <Chip variant="outlined" label={occurrence.type} className={test} />
 
         <Typography variant="body2" component="p">
