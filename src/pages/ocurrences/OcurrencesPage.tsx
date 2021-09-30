@@ -1,6 +1,5 @@
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
-import Pagination from '@material-ui/lab/Pagination';
 import React, { useEffect, useState } from 'react';
 import listOccurrencesUseCase from '../../usecases/occurrences/listOccurrences/listOccurrencesUseCase';
 import CreateOccurrenceModal from './components/createOccurrenceModal/CreateOccurrenceModal';
@@ -20,7 +19,6 @@ const OccurrencesPage: React.FunctionComponent = () => {
         isOpen={isCreateOccurrenceModalOpen}
         onClose={() => setIsCreateOccurrenceModalOpen(false)}
       />
-
       <header className={classes.header}>
         <Button
           className={classes.button}
@@ -29,14 +27,13 @@ const OccurrencesPage: React.FunctionComponent = () => {
           size="large"
           startIcon={<AddIcon />}
           onClick={() => setIsCreateOccurrenceModalOpen(true)}
-        />
+        >
+          Criar ocorrência
+        </Button>
       </header>
       <div className={classes.content}>
         <OccurrenceList />
       </div>
-      <nav className={classes.footer}>
-        <Pagination count={10} color="secondary" />
-      </nav>
     </main>
   );
 };

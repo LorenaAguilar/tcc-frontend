@@ -4,25 +4,21 @@ const OcurrencesPageStyle = makeStyles(() =>
   createStyles({
     container: {
       height: 'calc(100vh - 10vh - 7vh)',
-      padding: '0',
-      bottom: '0',
-      left: '0',
       display: 'flex',
       flexDirection: 'column',
+      margin: 32,
+      alignItems: 'center',
     },
     content: {
       height: '100%',
     },
-    button: {
-      width: '572px',
-    },
+    button: {},
     header: {
-      height: '10vh',
-    },
-    footer: {
-      bottom: '0',
+      paddingBottom: 16,
+      paddingRight: '25%',
       width: '100%',
-      height: '7vh',
+      display: 'flex',
+      justifyContent: 'flex-end',
     },
   })
 );
