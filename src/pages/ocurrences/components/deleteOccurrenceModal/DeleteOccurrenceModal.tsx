@@ -1,3 +1,4 @@
+import { Typography } from '@material-ui/core';
 import React, { useCallback } from 'react';
 import Modal from '../../../../components/modal/Modal';
 import DeleteOccurrenceUseCase from '../../../../usecases/occurrences/DeleteOccurrence';
@@ -27,7 +28,7 @@ const CreateOccurrenceModal: React.FunctionComponent<Props> = ({
       labelCloseButton="Não"
       labelSubmitButton="Sim"
     >
-      <div>Você deseja excluir essa ocorrência?</div>
+      <Typography component="p">Você deseja excluir essa ocorrência?</Typography>
     </Modal>
   );
 };

@@ -18,22 +18,26 @@ interface Props {
 const CreateOccurrenceModal: React.FunctionComponent<Props> = ({ isOpen, onClose }) => {
   const { container } = useCreateOccurrenceModalStyles();
 
-  const onSubmit = useCallback((values, { setSubmitting }) => {
-    const dateAux = new Date(values.date);
-    const timeAux = new Date(values.time);
+  const onSubmit = useCallback(
+    (values, { setSubmitting }) => {
+      const dateAux = new Date(values.date);
+      const timeAux = new Date(values.time);
 
-    const formattedDate = new Date();
-    formattedDate.setDate(dateAux.getDate());
-    formattedDate.setTime(timeAux.getTime());
-    CreateOccurrenceUseCase({
-      authorName: 'Gustavo Sena',
-      dateTime: formattedDate,
-      description: values.description,
-      placeId: values.address,
-      type: values.occurrenceType,
-    });
-    setSubmitting(false);
-  }, []);
+      const formattedDate = new Date();
+      formattedDate.setDate(dateAux.getDate());
+      formattedDate.setTime(timeAux.getTime());
+      CreateOccurrenceUseCase({
+        authorName: 'Gustavo Sena',
+        dateTime: formattedDate,
+        description: values.description,
+        placeId: values.address,
+        type: values.occurrenceType,
+      });
+      setSubmitting(false);
+      onClose();
+    },
+    [onClose]
+  );
 
   return (
     <Formik
