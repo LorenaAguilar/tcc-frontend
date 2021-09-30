@@ -8,8 +8,9 @@ import Typography from '@material-ui/core/Typography';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import { useStoreMap } from 'effector-react';
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import HomePageStore from '../../../../../stores/homePage/HomePageStore';
+import DeleteOccurrenceModal from '../../deleteOccurrenceModal/DeleteOccurrenceModal';
 import useOccurrenceListItemStyles from './OccurrenceListItem.styles';
 
 interface Props {
@@ -18,6 +19,7 @@ interface Props {
 
 const OccurrenceListItem: React.FunctionComponent<Props> = ({ occurrenceId }) => {
   const { root, test, contentCard } = useOccurrenceListItemStyles();
+  const [isOpen, setIsOpen] = useState(false);
   const occurrence = useStoreMap({
     store: HomePageStore,
     keys: [],
@@ -41,7 +43,7 @@ const OccurrenceListItem: React.FunctionComponent<Props> = ({ occurrenceId }) =>
       <CardHeader
         action={
           <>
-            <IconButton>
+            <IconButton onClick={() => setIsOpen(true)}>
               <DeleteIcon />
             </IconButton>
             <IconButton>
@@ -61,6 +63,11 @@ const OccurrenceListItem: React.FunctionComponent<Props> = ({ occurrenceId }) =>
         </Typography>
       </CardContent>
       <CardActions disableSpacing />
+      <DeleteOccurrenceModal
+        isOpen={isOpen}
+        occurrenceId={occurrence.id}
+        onClose={() => setIsOpen(false)}
+      />
     </Card>
   );
 };

@@ -37,14 +37,14 @@ export default function NotificationItemView({
 
   useEffect(() => {
     const TIME_TO_DISPLAY = duration;
-    const TIME_TO_AUTO_CLOSE = duration + duration;
+    const TIME_TO_AUTO_CLOSE = duration + 1000;
     setTimeout(() => {
       setIsOpen(true);
-    }, TIME_TO_DISPLAY);
+    }, TIME_TO_DISPLAY * (index - 1));
 
     setTimeout(() => {
       onClose();
-    }, TIME_TO_AUTO_CLOSE + TIME_TO_DISPLAY * index);
+    }, TIME_TO_AUTO_CLOSE + TIME_TO_DISPLAY * (index - 1));
   });
 
   const SnackbarContentClassName = useMemo(() => {

@@ -4,6 +4,7 @@ import {
   cleanHomePageStore,
   loadOccurrenceFailed,
   loadOccurrencesDone,
+  onDeleteSuccess,
   setSelectedOccurrence,
   startLoadOccurrences,
 } from './HomePageEvents';
@@ -42,6 +43,13 @@ const HomePageStore = createStore(initialState)
     const newState = cloneDeep(state);
 
     newState.selectedOccurrenceId = occurrenceId;
+
+    return newState;
+  })
+  .on(onDeleteSuccess, (state, { occurrenceId }) => {
+    const newState = cloneDeep(state);
+
+    newState.occurrences = newState.occurrences.filter(({ id }) => id !== occurrenceId);
 
     return newState;
   })
