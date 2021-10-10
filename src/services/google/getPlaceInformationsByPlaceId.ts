@@ -14,11 +14,9 @@ export default function getPlaceInformationsByPlaceId(
   return restClient('https://maps.googleapis.com/maps/api/')
     .post<GoogleResponse>(endpoint(placeId))
     .then((response) => {
-      console.log(response);
       return placeInformationsToLocation(response.data.results);
     })
     .catch((error) => {
-      console.log(error);
       return error;
     });
 }

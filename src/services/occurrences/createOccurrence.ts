@@ -10,6 +10,7 @@ export default function createOccurrence(command: {
   lat: number;
   lng: number;
   type: string;
+  origin: string;
 }): Promise<void> {
   return restClient()
     .post(endpoint, JSON.stringify(command))

@@ -27,6 +27,7 @@ const CreateOccurrenceUseCase = async (
       lat: location.lat,
       lng: location.lng,
       type: createOccurrenceCommand.type,
+      origin: createOccurrenceCommand.origin,
     });
     createOccurrenceDone();
     addNotification({
@@ -34,7 +35,6 @@ const CreateOccurrenceUseCase = async (
       type: TypeNotification.SUCCESS,
     });
   } catch (error) {
-    console.log(error);
     createOccurrenceFailed();
     addNotification({
       message: 'Erro durante a criação da ocorrência',

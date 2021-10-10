@@ -7,6 +7,7 @@ import FormikInputSelect from '../../../../components/formikInputSelect/FormikIn
 import FormikInputText from '../../../../components/formikInputText/formikInputText';
 import FormikInputTime from '../../../../components/formikInputTime/FormikInputTime';
 import Modal from '../../../../components/modal/Modal';
+import OriginEnum from '../../../../domains/OriginEnum';
 import CreateOccurrenceUseCase from '../../../../usecases/occurrences/createOcurrence/CreateOccurrenceUseCase';
 import useCreateOccurrenceModalStyles from './CreateOccorrenceModal.styles';
 
@@ -15,6 +16,15 @@ interface Props {
   onClose: () => void;
 }
 
+const types = ['Baixa Iluminação', 'Baixa inexistente', 'Assédio Sexual', 'Morte', 'Assalto'];
+const origins = [
+  { label: 'Fui vitima de uma situação', value: OriginEnum.FUI_VITIMA_DE_UMA_SITUACAO },
+  { label: 'Testemunhei uma situação', value: OriginEnum.TESTEMUNHEI_UMA_SITUACAO },
+  {
+    label: 'Coletei uma situação do noticiario',
+    value: OriginEnum.COLETEI_UMA_SITUACAO_DO_NOTICIARIO,
+  },
+];
 const CreateOccurrenceModal: React.FunctionComponent<Props> = ({ isOpen, onClose }) => {
   const { container } = useCreateOccurrenceModalStyles();
 
@@ -32,6 +42,8 @@ const CreateOccurrenceModal: React.FunctionComponent<Props> = ({ isOpen, onClose
         description: values.description,
         placeId: values.address,
         type: values.occurrenceType,
+        origin: origins.find((origin) => origin.label === values.occurrenceOrigin)
+          ?.value as OriginEnum,
       });
       setSubmitting(false);
       onClose();
@@ -47,15 +59,15 @@ const CreateOccurrenceModal: React.FunctionComponent<Props> = ({ isOpen, onClose
         address: '',
         description: '',
         occurrenceType: '',
-        occurrenceTypeDescription: '',
+        occurrenceOrigin: '',
       }}
       validationSchema={object({
         date: date().required('Campo obrigatório').nullable(),
-        time: string().required('Campo obrigatório'),
+        time: string().required('Campo obrigatório').nullable(),
         address: string().required('Campo obrigatório'),
         description: string().required('Campo obrigatório'),
         occurrenceType: string().required('Campo obrigatório').nullable(),
-        occurrenceTypeDescription: string().required('Campo obrigatório'),
+        occurrenceOrigin: string().required('Campo obrigatório').nullable(),
       })}
       onSubmit={onSubmit}
     >
@@ -81,12 +93,13 @@ const CreateOccurrenceModal: React.FunctionComponent<Props> = ({ isOpen, onClose
                 label="Tipo da ocorrência"
                 name="occurrenceType"
                 required
-                options={['Iluminação', 'Assédio Sexual', 'Morte', 'Assalto']}
+                options={types}
               />
-              <FormikInputText
-                label="Especificação do tipo da ocorrência"
-                name="occurrenceTypeDescription"
+              <FormikInputSelect
+                label="Origem"
+                name="occurrenceOrigin"
                 required
+                options={origins.map((origin) => origin.label)}
               />
               <FormikInputText label="Descrição" name="description" required />
             </div>
