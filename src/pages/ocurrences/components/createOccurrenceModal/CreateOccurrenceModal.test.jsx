@@ -24,7 +24,7 @@ describe('CreateOccurrenceModal', () => {
         address: '',
         description: '',
         occurrenceType: '',
-        occurrenceTypeDescription: '',
+        occurrenceOrigin: '',
       },
       validationSchema: {},
     };
