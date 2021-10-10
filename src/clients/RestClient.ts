@@ -9,6 +9,7 @@ const getUrl = () => {
 };
 
 export default function restClient(baseUrl = getUrl()): AxiosInstance {
+  console.log('process.env.NODE_ENV', process.env.NODE_ENV);
   const instance = axios.create({
     baseURL: `${baseUrl}`,
     headers: { 'content-type': 'application/json' },
