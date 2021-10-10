@@ -11,18 +11,6 @@ const colorLevel200 = 200;
 export default {
   black,
   white,
-  primary: {
-    contrastText: white,
-    dark: colors.grey[colorLevel900],
-    main: black,
-    light: colors.indigo[colorLevel800],
-  },
-  secondary: {
-    contrastText: white,
-    dark: colors.blue[colorLevel900],
-    main: colors.blue.A400,
-    light: colors.blue.A400,
-  },
   error: {
     contrastText: white,
     dark: colors.red[colorLevel900],

@@ -6,6 +6,7 @@ interface Occurrence {
   location: OccurrenceLocation;
   description: string;
   type: string;
+  origin: string;
 }
 
 export default Occurrence;

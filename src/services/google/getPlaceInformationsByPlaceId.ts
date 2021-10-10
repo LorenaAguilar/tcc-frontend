@@ -13,12 +13,8 @@ export default function getPlaceInformationsByPlaceId(
 ): Promise<OccurrenceLocation | null> {
   return restClient('https://maps.googleapis.com/maps/api/')
     .post<GoogleResponse>(endpoint(placeId))
-    .then((response) => {
-      return placeInformationsToLocation(response.data.results);
-    })
-    .catch((error) => {
-      return error;
-    });
+    .then((response) => placeInformationsToLocation(response.data.results))
+    .catch((error) => error);
 }
 
 const placeInformationsToLocation = (

@@ -11,6 +11,7 @@ interface OccurrenceResponse {
   address: string;
   description: string;
   type: string;
+  origin: string;
 }
 
 export default function listOccurrence(): Promise<Array<Occurrence>> {
@@ -29,4 +30,5 @@ const OccurrenceResponseToOccurrence = (occurrence: OccurrenceResponse): Occurre
     lat: occurrence.lat,
     lng: occurrence.lng,
   },
+  origin: occurrence.origin,
 });

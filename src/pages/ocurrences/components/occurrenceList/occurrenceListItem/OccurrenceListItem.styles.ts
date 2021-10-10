@@ -7,11 +7,17 @@ const OcurrenceListItemStyle = makeStyles(() =>
       width: 750,
       marginBottom: 24,
     },
-    test: {
-      marginBottom: 5,
+    title: {
+      marginBottom: 4,
     },
     contentCard: {
       paddingTop: 0,
+    },
+    centerContent: {
+      display: 'flex',
+      alignItems: 'center',
+      flexWrap: 'wrap',
+      gap: 8,
     },
   })
 );
