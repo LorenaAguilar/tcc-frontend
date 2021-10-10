@@ -69,13 +69,15 @@ const OccurrenceListItem: React.FunctionComponent<Props> = ({ occurrenceId }) =>
         title={
           <div className={`${centerContent} ${title}`}>
             <RoomIcon />
-            <h3>{occurrence.location.address}</h3>
+            <Typography variant="h4" color="textPrimary">
+              {occurrence.location.address}
+            </Typography>
           </div>
         }
         subheader={
           <div className={centerContent}>
             <ScheduleIcon />
-            {formattedTime}
+            <Typography>{formattedTime}</Typography>
           </div>
         }
       />

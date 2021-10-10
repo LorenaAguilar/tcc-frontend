@@ -1,3 +1,4 @@
+import { Typography } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
 import React, { useEffect, useState } from 'react';
@@ -20,6 +21,7 @@ const OccurrencesPage: React.FunctionComponent = () => {
         onClose={() => setIsCreateOccurrenceModalOpen(false)}
       />
       <header className={classes.header}>
+        <Typography variant="h2">Ocorrências cadastradas</Typography>
         <Button
           className={classes.button}
           variant="contained"
