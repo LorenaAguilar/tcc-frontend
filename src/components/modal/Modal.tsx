@@ -37,7 +37,9 @@ const Modal: React.FunctionComponent<Props> = ({
       <DialogContent dividers={hasDividers}>{children}</DialogContent>
       <DialogActions>
         <Button onClick={onClose}>{labelCloseButton}</Button>
-        <Button onClick={onSubmit}>{labelSubmitButton}</Button>
+        <Button onClick={onSubmit} variant="contained" color="secondary">
+          {labelSubmitButton}
+        </Button>
       </DialogActions>
     </Dialog>
   );
