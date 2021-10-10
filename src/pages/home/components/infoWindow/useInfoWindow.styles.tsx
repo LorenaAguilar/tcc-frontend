@@ -8,6 +8,10 @@ const useInfoWindowStyle = makeStyles(() =>
       flexWrap: 'wrap',
       gap: 8,
     },
+    container: {
+      display: 'grid',
+      gap: 8,
+    },
   })
 );
 

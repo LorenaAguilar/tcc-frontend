@@ -17,7 +17,7 @@ const InformationWindow: React.FunctionComponent<Props> = ({
   occurreceSelected: occurrenceSelected,
   setOccurrenceSelected: setSelected,
 }) => {
-  const { centerContent } = useInfoWindowStyle();
+  const { centerContent, container } = useInfoWindowStyle();
   const formattedTime = useMemo(
     () =>
       `${occurrenceSelected?.dateTime
@@ -28,8 +28,7 @@ const InformationWindow: React.FunctionComponent<Props> = ({
 
   const formattedTitle = useMemo(() => {
     //  const types = ['Baixa Iluminação', 'Iluminação Inexistente', 'Assédio Sexual', 'Morte', 'Assalto'];
-    console.log(occurrenceSelected.type, occurrenceSelected.origin);
-    if (occurrenceSelected.type.toLowerCase() === 'baixa iluminação') {
+    if (occurrenceSelected.type.toLowerCase() === 'iluminação inexistente') {
       switch (occurrenceSelected?.origin) {
         case OriginEnum.COLETEI_UMA_SITUACAO_DO_NOTICIARIO:
           return 'No noticiário, alguém viu que aqui não possui iluminação';
@@ -42,7 +41,7 @@ const InformationWindow: React.FunctionComponent<Props> = ({
       }
     }
 
-    if (occurrenceSelected.type.toLowerCase() === 'iluminação inexistente') {
+    if (occurrenceSelected.type.toLowerCase() === 'baixa iluminação') {
       switch (occurrenceSelected?.origin) {
         case OriginEnum.COLETEI_UMA_SITUACAO_DO_NOTICIARIO:
           return 'No noticiário, alguém viu que aqui possui baixa iluminação';
@@ -76,9 +75,9 @@ const InformationWindow: React.FunctionComponent<Props> = ({
         case OriginEnum.COLETEI_UMA_SITUACAO_DO_NOTICIARIO:
           return `No noticiário, alguém viu um ${occurrenceSelected.type.toLocaleLowerCase()} aqui`;
         case OriginEnum.FUI_VITIMA_DE_UMA_SITUACAO:
-          return `Fui vítima de um ${occurrenceSelected.type.toLocaleLowerCase()} aqui`;
+          return `Alguém foi vítima de um ${occurrenceSelected.type.toLocaleLowerCase()} aqui`;
         case OriginEnum.TESTEMUNHEI_UMA_SITUACAO:
-          return `Testemunhei um ${occurrenceSelected.type.toLocaleLowerCase()} aqui`;
+          return `Alguém testemunhou um ${occurrenceSelected.type.toLocaleLowerCase()} aqui`;
         default:
           return `${occurrenceSelected.type} (informações inconsistentes)`;
       }
@@ -95,7 +94,7 @@ const InformationWindow: React.FunctionComponent<Props> = ({
           setSelected(null);
         }}
       >
-        <Box>
+        <Box className={container}>
           <Typography color="textPrimary" variant="h4">
             {formattedTitle}
           </Typography>
@@ -111,7 +110,9 @@ const InformationWindow: React.FunctionComponent<Props> = ({
               {formattedTime}
             </Typography>
           </div>
-          <Typography component="p">{occurrenceSelected.description}</Typography>
+          <Typography component="p">
+            Descrição da ocorrência: {occurrenceSelected.description}
+          </Typography>
         </Box>
       </InfoWindow>
     </>
