@@ -12,7 +12,7 @@ const AboutUsInformation: React.FunctionComponent = () => {
       <Box className={classes.information}>
         <InfoSection
           title="Sobre"
-          text="A aplicação Mulheres seguras em BH é uma plataforma digital colaborativa que registra locais com baixa iluminação, casos de assédio, assaltos e mortes na cidade de Belo Horizonte."
+          text="A aplicação BH mais segura para elas é uma plataforma digital colaborativa que registra locais com baixa iluminação, casos de assédio, assaltos e mortes na cidade de Belo Horizonte."
         />
         <div className={classes.icon}>
           <WomanIcon />
