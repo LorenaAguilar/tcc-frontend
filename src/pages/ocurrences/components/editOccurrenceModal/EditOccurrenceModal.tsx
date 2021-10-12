@@ -81,7 +81,7 @@ const EditOccurrenceModal: React.FunctionComponent<Props> = ({ isOpen, onClose, 
       })}
       onSubmit={onSubmit}
     >
-      {({ handleSubmit, resetForm }) => {
+      {({ handleSubmit, resetForm, dirty }) => {
         const handleClose = () => {
           onClose();
           resetForm();
@@ -94,6 +94,7 @@ const EditOccurrenceModal: React.FunctionComponent<Props> = ({ isOpen, onClose, 
             onClose={handleClose}
             hasDividers
             onSubmit={handleSubmit}
+            isDisabledSubmitButon={!dirty}
           >
             <div className={container}>
               <FormikInputDate label="Data" name="date" required />

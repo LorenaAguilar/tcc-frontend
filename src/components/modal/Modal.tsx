@@ -15,6 +15,7 @@ interface Props {
   labelSubmitButton?: string;
   onSubmit: () => void;
   hasDividers?: boolean;
+  isDisabledSubmitButon?: boolean;
 }
 
 const Modal: React.FunctionComponent<Props> = ({
@@ -26,6 +27,7 @@ const Modal: React.FunctionComponent<Props> = ({
   title,
   labelCloseButton = 'Cancelar',
   labelSubmitButton = 'Salvar',
+  isDisabledSubmitButon,
 }) => {
   const { titleStyle } = useModalStyles();
 
@@ -37,7 +39,12 @@ const Modal: React.FunctionComponent<Props> = ({
       <DialogContent dividers={hasDividers}>{children}</DialogContent>
       <DialogActions>
         <Button onClick={onClose}>{labelCloseButton}</Button>
-        <Button onClick={onSubmit} variant="contained" color="secondary">
+        <Button
+          onClick={onSubmit}
+          variant="contained"
+          color="secondary"
+          disabled={isDisabledSubmitButon}
+        >
           {labelSubmitButton}
         </Button>
       </DialogActions>
