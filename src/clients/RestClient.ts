@@ -1,7 +1,8 @@
 import axios, { AxiosInstance } from 'axios';
 
 const getUrl = () => {
-  if (process.env.ENV === 'production') {
+  const isProdEnv = process.env.ENV === 'production';
+  if (isProdEnv) {
     return 'https://womens-map-service.herokuapp.com/';
   }
 
