@@ -1,10 +1,12 @@
-import React from 'react';
-import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import AppRouter from './AppRouter';
+import { ThemeProvider } from '@material-ui/core/styles';
+import React from 'react';
 import theme from '../themes';
+import AppRouter from './AppRouter';
 
 function App(): JSX.Element {
+  console.log('ENV', process.env.ENV);
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />

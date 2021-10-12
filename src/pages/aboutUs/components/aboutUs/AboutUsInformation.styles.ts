@@ -17,6 +17,10 @@ const AboutUsInformationStyles = makeStyles(() =>
       padding: 32,
       display: 'grid',
     },
+    icon: {
+      display: 'flex',
+      justifyContent: 'center',
+    },
   })
 );
 
