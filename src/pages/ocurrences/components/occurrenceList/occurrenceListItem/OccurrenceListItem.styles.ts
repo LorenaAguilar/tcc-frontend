@@ -10,6 +10,13 @@ const OcurrenceListItemStyle = makeStyles(() =>
     title: {
       marginBottom: 4,
     },
+    formattedText: {
+      marginTop: 4,
+      maxWidth: 585,
+      whiteSpace: 'nowrap',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+    },
     contentCard: {
       paddingTop: 0,
     },

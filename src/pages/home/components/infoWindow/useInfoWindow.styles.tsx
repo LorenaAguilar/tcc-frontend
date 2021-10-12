@@ -12,6 +12,12 @@ const useInfoWindowStyle = makeStyles(() =>
       display: 'grid',
       gap: 8,
     },
+    formattedText: {
+      maxWidth: 585,
+      whiteSpace: 'nowrap',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+    },
   })
 );
 

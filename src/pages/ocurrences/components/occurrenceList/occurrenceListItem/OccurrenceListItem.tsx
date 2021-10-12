@@ -20,7 +20,7 @@ interface Props {
 }
 
 const OccurrenceListItem: React.FunctionComponent<Props> = ({ occurrenceId }) => {
-  const { root, contentCard, centerContent, title } = useOccurrenceListItemStyles();
+  const { root, contentCard, centerContent, title, formattedText } = useOccurrenceListItemStyles();
   const [isOpen, setIsOpen] = useState(false);
   const occurrence = useStoreMap({
     store: HomePageStore,
@@ -69,7 +69,7 @@ const OccurrenceListItem: React.FunctionComponent<Props> = ({ occurrenceId }) =>
         title={
           <div className={`${centerContent} ${title}`}>
             <RoomIcon />
-            <Typography variant="h4" color="textPrimary">
+            <Typography variant="h4" className={formattedText} color="textPrimary">
               {occurrence.location.address}
             </Typography>
           </div>

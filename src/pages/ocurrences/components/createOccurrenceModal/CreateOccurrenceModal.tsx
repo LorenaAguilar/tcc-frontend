@@ -47,6 +47,9 @@ const CreateOccurrenceModal: React.FunctionComponent<Props> = ({ isOpen, onClose
       });
       setSubmitting(false);
       onClose();
+      setTimeout(() => {
+        window.location.reload();
+      }, 1500);
     },
     [onClose]
   );

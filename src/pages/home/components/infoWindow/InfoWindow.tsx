@@ -17,7 +17,7 @@ const InformationWindow: React.FunctionComponent<Props> = ({
   occurreceSelected: occurrenceSelected,
   setOccurrenceSelected: setSelected,
 }) => {
-  const { centerContent, container } = useInfoWindowStyle();
+  const { centerContent, container, formattedText } = useInfoWindowStyle();
   const formattedTime = useMemo(
     () =>
       `${occurrenceSelected?.dateTime
@@ -89,10 +89,14 @@ const InformationWindow: React.FunctionComponent<Props> = ({
   return (
     <>
       <InfoWindow
-        position={{ lat: occurrenceSelected.location.lat, lng: occurrenceSelected.location.lng }}
+        position={{
+          lat: occurrenceSelected.location.lat,
+          lng: occurrenceSelected.location.lng,
+        }}
         onCloseClick={() => {
           setSelected(null);
         }}
+        options={{ pixelOffset: new google.maps.Size(0, -32) }}
       >
         <Box className={container}>
           <Typography color="textPrimary" variant="h4">
@@ -100,7 +104,7 @@ const InformationWindow: React.FunctionComponent<Props> = ({
           </Typography>
           <div className={centerContent}>
             <RoomIcon />
-            <Typography component="p" color="textPrimary">
+            <Typography component="p" className={formattedText} color="textPrimary">
               {occurrenceSelected.location.address}
             </Typography>
           </div>
