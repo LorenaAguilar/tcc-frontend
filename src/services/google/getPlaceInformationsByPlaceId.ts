@@ -6,7 +6,8 @@ import PlaceInformations from './types/PlaceInformations';
 interface GoogleResponse {
   results: Array<PlaceInformations>;
 }
-const endpoint = (placeId) => `geocode/json?place_id=${placeId}&key=${GOOGLE_API_KEY}`;
+const endpoint = (placeId) =>
+  `geocode/json?address=${placeId.replace(' ', '%20')}&key=${GOOGLE_API_KEY}`;
 
 export default function getPlaceInformationsByPlaceId(
   placeId: string

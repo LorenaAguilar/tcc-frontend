@@ -13,6 +13,7 @@ import React, { useMemo, useState } from 'react';
 import OriginEnum from '../../../../../domains/OriginEnum';
 import HomePageStore from '../../../../../stores/homePage/HomePageStore';
 import DeleteOccurrenceModal from '../../deleteOccurrenceModal/DeleteOccurrenceModal';
+import EditOccurrenceModal from '../../editOccurrenceModal/EditOccurrenceModal';
 import useOccurrenceListItemStyles from './OccurrenceListItem.styles';
 
 interface Props {
@@ -21,7 +22,9 @@ interface Props {
 
 const OccurrenceListItem: React.FunctionComponent<Props> = ({ occurrenceId }) => {
   const { root, contentCard, centerContent, title, formattedText } = useOccurrenceListItemStyles();
-  const [isOpen, setIsOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+
   const occurrence = useStoreMap({
     store: HomePageStore,
     keys: [],
@@ -58,10 +61,10 @@ const OccurrenceListItem: React.FunctionComponent<Props> = ({ occurrenceId }) =>
       <CardHeader
         action={
           <>
-            <IconButton onClick={() => setIsOpen(true)}>
+            <IconButton onClick={() => setIsDeleteModalOpen(true)}>
               <DeleteIcon />
             </IconButton>
-            <IconButton>
+            <IconButton onClick={() => setIsEditModalOpen(true)}>
               <EditIcon />
             </IconButton>
           </>
@@ -97,9 +100,14 @@ const OccurrenceListItem: React.FunctionComponent<Props> = ({ occurrenceId }) =>
       </CardContent>
       <CardActions disableSpacing />
       <DeleteOccurrenceModal
-        isOpen={isOpen}
+        isOpen={isDeleteModalOpen}
         occurrenceId={occurrence.id}
-        onClose={() => setIsOpen(false)}
+        onClose={() => setIsDeleteModalOpen(false)}
+      />
+      <EditOccurrenceModal
+        isOpen={isEditModalOpen}
+        occurrenceId={occurrence.id}
+        onClose={() => setIsEditModalOpen(false)}
       />
     </Card>
   );

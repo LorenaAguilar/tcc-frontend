@@ -16,6 +16,7 @@ interface Props {
   label: string;
   name: string;
   required?: boolean;
+  initialValue?: string;
 }
 
 interface PlaceType {
@@ -47,11 +48,18 @@ function loadScript(src: string, position: HTMLElement | null, id: string) {
 
 const autocompleteService = { current: null };
 
-const AutoCompletePlaces: React.FunctionComponent<Props> = ({ name, label, required }) => {
+const AutoCompletePlaces: React.FunctionComponent<Props> = ({
+  name,
+  label,
+  required,
+  initialValue = '',
+}) => {
   const { icon, helperText } = useAutoCompletePlacesStyles();
 
-  const [value, setValue] = React.useState<PlaceType | null>(null);
-  const [inputValue, setInputValue] = React.useState('');
+  const [value, setValue] = React.useState<PlaceType | null>(
+    initialValue ? ({ description: initialValue } as PlaceType) : null
+  );
+  const [inputValue, setInputValue] = React.useState(initialValue);
   const [options, setOptions] = React.useState<PlaceType[]>([]);
   const loaded = React.useRef(false);
 
@@ -133,7 +141,7 @@ const AutoCompletePlaces: React.FunctionComponent<Props> = ({ name, label, requi
               onChange={(_event: any, newValue: PlaceType | null) => {
                 setOptions(newValue ? [newValue, ...options] : options);
                 setValue(newValue);
-                form.setFieldValue(name, newValue?.place_id, true);
+                form.setFieldValue(name, newValue?.description, true);
               }}
               onInputChange={(_event, newInputValue) => {
                 setInputValue(newInputValue);

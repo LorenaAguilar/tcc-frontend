@@ -1,5 +1,6 @@
 import { createEvent } from 'effector';
 import Occurrence from '../../domains/Occurrence';
+import OriginEnum from '../../domains/OriginEnum';
 
 export const startLoadOccurrences = createEvent('startLoadOccurrences');
 
@@ -13,3 +14,17 @@ export const setSelectedOccurrence = createEvent<{ occurrenceId: string }>('setS
 export const cleanHomePageStore = createEvent('cleanHomePageStore');
 
 export const onDeleteSuccess = createEvent<{ occurrenceId: string }>('onDeleteSuccess');
+
+export const onEditSuccess = createEvent<{
+  occurrenceId: string;
+  occurrenceData: {
+    authorName: string;
+    dateTime: Date;
+    description: string;
+    address: string;
+    lat: number;
+    lng: number;
+    type: string;
+    origin: OriginEnum;
+  };
+}>('onEditSuccess');

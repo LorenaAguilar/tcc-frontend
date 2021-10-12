@@ -1,10 +1,12 @@
 import { createStore } from 'effector';
 import { cloneDeep } from 'lodash';
+import OriginEnum from '../../domains/OriginEnum';
 import {
   cleanHomePageStore,
   loadOccurrenceFailed,
   loadOccurrencesDone,
   onDeleteSuccess,
+  onEditSuccess,
   setSelectedOccurrence,
   startLoadOccurrences,
 } from './HomePageEvents';
@@ -50,6 +52,30 @@ const HomePageStore = createStore(initialState)
     const newState = cloneDeep(state);
 
     newState.occurrences = newState.occurrences.filter(({ id }) => id !== occurrenceId);
+
+    return newState;
+  })
+  .on(onEditSuccess, (state, { occurrenceId, occurrenceData }) => {
+    const newState = cloneDeep(state);
+
+    newState.occurrences = newState.occurrences.map((occurrence) => {
+      if (occurrence.id === occurrenceId) {
+        return {
+          ...occurrence,
+          dateTime: occurrenceData.dateTime,
+          location: {
+            lat: occurrenceData.lat,
+            lng: occurrenceData.lng,
+            address: occurrenceData.address,
+          },
+          description: occurrenceData.description,
+          type: occurrenceData.type,
+          origin: occurrenceData.origin as OriginEnum,
+        };
+      }
+
+      return occurrence;
+    });
 
     return newState;
   })
