@@ -15,7 +15,6 @@ const Header: React.FunctionComponent = () => {
       <div>
         <OptionMenu title="Home" toUrl="" />
         <OptionMenu title="Ocorrência" toUrl="occurrences" />
-        <OptionMenu title="Ajuda" toUrl="help" />
         <OptionMenu title="Sobre nós" toUrl="aboutus" />
       </div>
     </Box>
