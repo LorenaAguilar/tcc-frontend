@@ -1,4 +1,4 @@
-import { makeStyles, createStyles } from '@material-ui/core';
+import { createStyles, makeStyles } from '@material-ui/core';
 
 const HeaderStyles = makeStyles(() =>
   createStyles({
@@ -23,6 +23,23 @@ const HeaderStyles = makeStyles(() =>
       alignItems: 'center',
       height: '100%',
       paddingLeft: '16px',
+    },
+    optionsContainer: {
+      display: 'flex',
+      alignItems: 'center',
+      paddingRight: '20px',
+    },
+    loginIcon: {
+      fontSize: 40,
+    },
+    loginButton: {
+      minWidth: 40,
+      '&:hover': {
+        backgroundColor: 'transparent',
+      },
+    },
+    menuOptions: {
+      marginTop: '45px',
     },
   })
 );
