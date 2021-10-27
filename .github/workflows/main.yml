@@ -30,7 +30,6 @@ jobs:
         run: yarn jest
         
   deploy-dev:
-    needs: build
     name: Deploy to DEV - Heroku
     runs-on: ubuntu-latest
     steps:
