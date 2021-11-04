@@ -5,8 +5,6 @@ import theme from '../themes';
 import AppRouter from './AppRouter';
 
 function App(): JSX.Element {
-  console.log('ENV', process.env.ENV);
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />

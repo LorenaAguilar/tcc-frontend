@@ -10,10 +10,19 @@ const getUrl = () => {
 };
 
 export default function restClient(baseUrl = getUrl()): AxiosInstance {
-  const instance = axios.create({
+  const defaultInfos = {
     baseURL: `${baseUrl}`,
     headers: { 'content-type': 'application/json' },
-  });
+  };
 
-  return instance;
+  const authorization = localStorage.getItem('token');
+
+  if (baseUrl === getUrl() && authorization) {
+    return axios.create({
+      baseURL: `${baseUrl}`,
+      headers: { 'content-type': 'application/json', Authorization: authorization },
+    });
+  }
+
+  return axios.create(defaultInfos);
 }

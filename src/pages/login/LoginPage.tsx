@@ -11,6 +11,7 @@ import React from 'react';
 import { object, string } from 'yup';
 import FormikInputPassword from '../../components/formikInputPassword/FormikInputPassword';
 import FormikInputText from '../../components/formikInputText/formikInputText';
+import LoginUseCase from '../../usecases/user/LoginUseCase';
 import LoginPagesStyle from './LoginPage.style';
 
 interface Props {
@@ -45,7 +46,7 @@ const Login: React.FunctionComponent<Props> = ({ isOpen, setIsOpen }) => {
                 .required('Campo obrigatório'),
               password: string().required('Campo obrigatório'),
             })}
-            onSubmit={(a) => console.log(a)}
+            onSubmit={(values) => LoginUseCase(values, handleClose)}
           >
             {({ handleSubmit, dirty }) => (
               <Form>
