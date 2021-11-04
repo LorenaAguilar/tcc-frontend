@@ -8,9 +8,17 @@ interface Props {
   name: string;
   label: string;
   required?: boolean;
+  placeholder?: string;
+  className?: string;
 }
 
-const FormikInputText: React.FunctionComponent<Props> = ({ label, name, required }) => {
+const FormikInputText: React.FunctionComponent<Props> = ({
+  label,
+  name,
+  required,
+  placeholder,
+  className,
+}) => {
   const { helperText } = useFormikInputTextStyles();
 
   return (
@@ -35,6 +43,8 @@ const FormikInputText: React.FunctionComponent<Props> = ({ label, name, required
               helperText={hasError && meta.error}
               fullWidth
               variant="outlined"
+              placeholder={placeholder}
+              className={className}
               onChange={field.onChange}
               onBlur={onBlur}
               error={hasError}
