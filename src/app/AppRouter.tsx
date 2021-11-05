@@ -6,6 +6,7 @@ import Header from '../components/header/Header';
 import Notification from '../components/notification/Notification';
 import AboutUs from '../pages/aboutUs/AboutUs';
 import HomeRoute from '../pages/home/HomeRoute';
+import CreateAccount from '../pages/login/CreateAccountPage';
 import OccurrencesPage from '../pages/ocurrences/OcurrencesPage';
 
 function AppRouter(): JSX.Element {
@@ -18,6 +19,7 @@ function AppRouter(): JSX.Element {
           <Route exact path="/" component={HomeRoute} />
           <Route path="/aboutus" component={AboutUs} />
           <Route path="/occurrences" component={OccurrencesPage} />
+          <Route path="/cadastroConta" component={CreateAccount} />
         </Switch>
       </Suspense>
       <Footer />

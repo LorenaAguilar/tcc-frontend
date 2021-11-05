@@ -1,6 +1,6 @@
 import { createStyles, makeStyles } from '@material-ui/core';
 
-const LoginPagesStyle = makeStyles(() =>
+const CreateAccountPagesStyle = makeStyles(() =>
   createStyles({
     container: {
       height: 'calc(100vh - 10vh - 7vh)',
@@ -10,7 +10,8 @@ const LoginPagesStyle = makeStyles(() =>
       alignItems: 'center',
     },
     content: {
-      height: '500px',
+      minWidth: '780px',
+      minHeight: '580px',
       display: 'flex',
       alignItems: 'center',
     },
@@ -29,8 +30,13 @@ const LoginPagesStyle = makeStyles(() =>
     },
     field: {
       width: '350px',
-      margin: '3px 0px 12px',
+      margin: '3px 5px 12px',
     },
+    emailField: {
+      width: '710px',
+      margin: '3px 5px 12px',
+    },
+
     information: {
       display: 'flex',
       flexDirection: 'column',
@@ -61,13 +67,22 @@ const LoginPagesStyle = makeStyles(() =>
     button: {
       width: '350px',
       backgroundColor: '#D53D87',
-      height: '50px',
-      marginTop: '20px',
       '&&:hover': {
         backgroundColor: '#f977b6',
       },
     },
+    fieldContent: {
+      display: 'flex',
+    },
+    containerButton: {
+      height: '50px',
+      display: 'flex',
+      justifyContent: 'end',
+      marginBottom: '30px',
+      marginRight: '5px',
+      marginTop: '30px',
+    },
   })
 );
 
-export default LoginPagesStyle;
+export default CreateAccountPagesStyle;

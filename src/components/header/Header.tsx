@@ -61,7 +61,7 @@ const Header: React.FunctionComponent = () => {
             </MenuItem>
             <MenuItem
               onClick={() => {
-                onClickButton('cadastro');
+                onClickButton('cadastroConta');
                 handleClose();
               }}
             >
