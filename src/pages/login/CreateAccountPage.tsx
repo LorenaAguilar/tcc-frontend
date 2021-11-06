@@ -13,14 +13,8 @@ import React, { useState } from 'react';
 import * as yup from 'yup';
 import FormikInputPassword from '../../components/formikInputPassword/FormikInputPassword';
 import FormikInputText from '../../components/formikInputText/formikInputText';
-import LoginUseCase from '../../usecases/user/LoginUseCase';
+import CreateUserUseCase from '../../usecases/user/CreateUserUseCase';
 import CreateAccountPagesStyle from './CreateAccountPage.style';
-
-interface Props {
-  isOpen: boolean;
-
-  // onClose: () => void;
-}
 
 const CreateAccount: React.FunctionComponent = () => {
   const [open, setOpen] = useState(true);
@@ -44,7 +38,13 @@ const CreateAccount: React.FunctionComponent = () => {
         </DialogTitle>
         <DialogContent className={classes.fields}>
           <Formik
-            initialValues={{ email: '', password: '' }}
+            initialValues={{
+              email: '',
+              password: '',
+              name: '',
+              lastname: '',
+              passwordconfirmation: '',
+            }}
             validationSchema={yup.object({
               name: yup
                 .string()
@@ -70,7 +70,17 @@ const CreateAccount: React.FunctionComponent = () => {
                 .required()
                 .oneOf([yup.ref('password'), null], 'As senhas não são iguais'),
             })}
-            onSubmit={(values) => LoginUseCase(values, handleClose)}
+            onSubmit={(values) =>
+              CreateUserUseCase(
+                {
+                  email: values.email,
+                  password: values.password,
+                  name: values.name,
+                  lastname: values.lastname,
+                },
+                handleClose
+              )
+            }
           >
             {({ handleSubmit, dirty }) => (
               <Form>
