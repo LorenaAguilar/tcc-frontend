@@ -1,5 +1,6 @@
 import { Avatar, IconButton, Menu, MenuItem } from '@material-ui/core';
 import React, { useCallback } from 'react';
+import LogoutUseCase from '../../../../usecases/user/LogoutUseCase';
 import HeaderStyles from '../../Header.styles';
 import StringAvatar from './StringToAvatar';
 
@@ -17,8 +18,7 @@ const UserLogged: React.FunctionComponent = () => {
   };
 
   const onClickButton = useCallback(() => {
-    localStorage.removeItem('token');
-    window.location.reload();
+    LogoutUseCase();
   }, []);
 
   return (

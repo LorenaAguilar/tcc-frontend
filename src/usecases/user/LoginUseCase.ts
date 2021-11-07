@@ -1,6 +1,7 @@
 import TypeNotification from '../../domains/Notification';
 import loginService from '../../services/user/loginService';
 import { addNotification } from '../../stores/notificationList/NotificationListEvents';
+import { login } from '../../stores/user/UserEvents';
 
 const LoginUseCase = async (
   command: { email: string; password: string },
@@ -8,7 +9,7 @@ const LoginUseCase = async (
 ): Promise<void> => {
   try {
     const token = await loginService(command);
-    localStorage.setItem('token', token);
+    login({ token });
     addNotification({
       message: 'Login realizado com sucesso',
       type: TypeNotification.SUCCESS,
