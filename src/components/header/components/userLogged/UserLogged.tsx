@@ -1,11 +1,18 @@
 import { Avatar, IconButton, Menu, MenuItem } from '@material-ui/core';
+import { useStoreMap } from 'effector-react';
 import React, { useCallback } from 'react';
+import UserStore from '../../../../stores/user/UserStore';
 import LogoutUseCase from '../../../../usecases/user/LogoutUseCase';
 import HeaderStyles from '../../Header.styles';
 import StringAvatar from './StringToAvatar';
 
 const UserLogged: React.FunctionComponent = () => {
   const classes = HeaderStyles();
+  const { name, lastname } = useStoreMap({
+    store: UserStore,
+    keys: [],
+    fn: (state) => ({ name: state.name, lastname: state.lastname }),
+  });
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -24,7 +31,7 @@ const UserLogged: React.FunctionComponent = () => {
   return (
     <div>
       <IconButton color="inherit" onClick={handleClick}>
-        <Avatar {...StringAvatar('Gustavo', 'Sena')} />
+        <Avatar {...StringAvatar(name, lastname)} />
       </IconButton>
 
       <Menu

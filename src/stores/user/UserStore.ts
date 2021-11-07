@@ -5,6 +5,8 @@ import UserState from './UserState';
 
 const initialState: UserState = {
   token: localStorage.getItem('token') || '',
+  name: 'Lorena',
+  lastname: 'Aguilar',
 };
 
 const UserStore = createStore(initialState)
