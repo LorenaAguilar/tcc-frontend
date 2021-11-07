@@ -1,46 +1,43 @@
-import { Avatar } from '@material-ui/core';
-import ButtonComponent from '@material-ui/core/Button';
-import React from 'react';
+import { Avatar, IconButton, Menu, MenuItem } from '@material-ui/core';
+import React, { useCallback } from 'react';
+import HeaderStyles from '../../Header.styles';
+import StringAvatar from './StringToAvatar';
 
-interface Props {
-  title: string;
-}
+const UserLogged: React.FunctionComponent = () => {
+  const classes = HeaderStyles();
 
-const Button: React.FunctionComponent<Props> = () => (
-  <ButtonComponent>
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
 
-    <IconButton color="inherit" onClick={handleClick}>
-    <Avatar>OP</Avatar>
-          </IconButton>
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
-          <Menu
-            id="menu-appbar"
-            anchorEl={anchorEl}
-            className={classes.menuOptions}
-            open={open}
-            onClose={handleClose}
-          >
-            <MenuItem
-              onClick={() => {
-                setOpenLogin(true);
-                handleClose();
-              }}
-            >
-              Entrar
-            </MenuItem>
-            <MenuItem
-              onClick={() => {
-                onClickButton('cadastroConta');
-                handleClose();
-              }}
-            >
-              Criar conta
-            </MenuItem>
-          </Menu>
+  const onClickButton = useCallback(() => {
+    localStorage.removeItem('token');
+    window.location.reload();
+  }, []);
 
-          <Login isOpen={openLogin} setIsOpen={setOpenLogin} />
-        </div>
-  </ButtonComponent>
-);
+  return (
+    <div>
+      <IconButton color="inherit" onClick={handleClick}>
+        <Avatar {...StringAvatar('Gustavo', 'Sena')} />
+      </IconButton>
 
-export default Button;
+      <Menu
+        id="menu-appbar"
+        anchorEl={anchorEl}
+        className={classes.menuOptions}
+        open={open}
+        onClose={handleClose}
+      >
+        <MenuItem onClick={onClickButton}>Sair</MenuItem>
+      </Menu>
+    </div>
+  );
+};
+
+export default UserLogged;
