@@ -10,30 +10,34 @@ import {
 import { addNotification } from '../../../stores/notificationList/NotificationListEvents';
 
 const CreateOccurrenceUseCase = async (
-  createOccurrenceCommand: CreateOccurrenceCommand
+  createOccurrenceCommand: CreateOccurrenceCommand,
+  successCallback: () => void
 ): Promise<void> => {
   startCreateOccurrence();
   try {
     const location = await getPlaceInformationsByPlaceId(createOccurrenceCommand.placeId);
-    if (location === null) {
-      throw new Error('');
+    if (location) {
+      if (location?.isFromBH && location.lat && location.lng) {
+        await createOccurrence({
+          authorName: createOccurrenceCommand.authorName,
+          dateTime: createOccurrenceCommand.dateTime,
+          description: createOccurrenceCommand.description,
+          address: location.address,
+          lat: location.lat,
+          lng: location.lng,
+          type: createOccurrenceCommand.type,
+          origin: createOccurrenceCommand.origin,
+        });
+        createOccurrenceDone();
+        addNotification({
+          message: 'Ocorrência criada com sucesso',
+          type: TypeNotification.SUCCESS,
+        });
+        successCallback();
+      } else if (!location.isFromBH) {
+        throw new Error('NOT_IN_BH');
+      }
     }
-
-    await createOccurrence({
-      authorName: createOccurrenceCommand.authorName,
-      dateTime: createOccurrenceCommand.dateTime,
-      description: createOccurrenceCommand.description,
-      address: location.address,
-      lat: location.lat,
-      lng: location.lng,
-      type: createOccurrenceCommand.type,
-      origin: createOccurrenceCommand.origin,
-    });
-    createOccurrenceDone();
-    addNotification({
-      message: 'Ocorrência criada com sucesso',
-      type: TypeNotification.SUCCESS,
-    });
   } catch (error) {
     createOccurrenceFailed();
     const errorMessage =

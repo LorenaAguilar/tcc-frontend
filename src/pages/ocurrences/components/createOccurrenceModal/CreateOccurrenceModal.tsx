@@ -36,20 +36,24 @@ const CreateOccurrenceModal: React.FunctionComponent<Props> = ({ isOpen, onClose
       const formattedDate = new Date();
       formattedDate.setDate(dateAux.getDate());
       formattedDate.setTime(timeAux.getTime());
-      CreateOccurrenceUseCase({
-        authorName: 'Gustavo Sena',
-        dateTime: formattedDate,
-        description: values.description,
-        placeId: values.address,
-        type: values.occurrenceType,
-        origin: origins.find((origin) => origin.label === values.occurrenceOrigin)
-          ?.value as OriginEnum,
-      });
+      CreateOccurrenceUseCase(
+        {
+          authorName: 'Gustavo Sena',
+          dateTime: formattedDate,
+          description: values.description,
+          placeId: values.address,
+          type: values.occurrenceType,
+          origin: origins.find((origin) => origin.label === values.occurrenceOrigin)
+            ?.value as OriginEnum,
+        },
+        () => {
+          onClose();
+          setTimeout(() => {
+            window.location.reload();
+          }, 1500);
+        }
+      );
       setSubmitting(false);
-      onClose();
-      setTimeout(() => {
-        window.location.reload();
-      }, 1500);
     },
     [onClose]
   );
