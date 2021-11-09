@@ -6,7 +6,7 @@ interface AddressComponents {
 }
 
 interface PlaceInformations {
-  address_components: AddressComponents;
+  address_components: Array<AddressComponents>;
   formatted_address: string;
   geometry: {
     bounds: {

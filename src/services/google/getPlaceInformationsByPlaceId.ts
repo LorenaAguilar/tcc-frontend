@@ -21,12 +21,21 @@ export default function getPlaceInformationsByPlaceId(
 const placeInformationsToLocation = (
   placeInformations: Array<PlaceInformations>
 ): OccurrenceLocation | null => {
+  const isFromBH =
+    placeInformations[0].address_components.find(
+      (addressComponent) => addressComponent.types[0] === 'administrative_area_level_2'
+    )?.long_name === 'Belo Horizonte';
+
   if (placeInformations?.[0]) {
-    return {
-      address: placeInformations?.[0].formatted_address,
-      lat: placeInformations?.[0].geometry.location.lat,
-      lng: placeInformations?.[0].geometry.location.lng,
-    };
+    if (isFromBH) {
+      return {
+        address: placeInformations?.[0].formatted_address,
+        lat: placeInformations?.[0].geometry.location.lat,
+        lng: placeInformations?.[0].geometry.location.lng,
+      };
+    }
+
+    throw new Error('NOT_IN_BH');
   }
   return null;
 };

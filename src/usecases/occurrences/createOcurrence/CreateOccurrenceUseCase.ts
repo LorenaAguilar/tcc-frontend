@@ -36,8 +36,13 @@ const CreateOccurrenceUseCase = async (
     });
   } catch (error) {
     createOccurrenceFailed();
+    const errorMessage =
+      (error as { message: string }).message === 'NOT_IN_BH'
+        ? 'Não é possível criar ocorrências fora de Belo Horizonte'
+        : 'Erro durante a criação da ocorrência';
+
     addNotification({
-      message: 'Erro durante a criação da ocorrência',
+      message: errorMessage,
       type: TypeNotification.ERROR,
     });
   }
