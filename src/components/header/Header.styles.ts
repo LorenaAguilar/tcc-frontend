@@ -41,6 +41,13 @@ const HeaderStyles = makeStyles(() =>
     menuOptions: {
       marginTop: '45px',
     },
+    root: {
+      backgroundColor: '#D53D87',
+      fontSize: '23px',
+      fontWeight: 500,
+      width: '50px',
+      height: '50px',
+    },
   })
 );
 

@@ -9,7 +9,8 @@ import {
 } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import { Form, Formik } from 'formik';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import * as yup from 'yup';
 import FormikInputPassword from '../../components/formikInputPassword/FormikInputPassword';
 import FormikInputText from '../../components/formikInputText/formikInputText';
@@ -18,11 +19,14 @@ import CreateAccountPagesStyle from './CreateAccountPage.style';
 
 const CreateAccount: React.FunctionComponent = () => {
   const [open, setOpen] = useState(true);
-
+  const history = useHistory();
   const classes = CreateAccountPagesStyle();
+
+  const goHome = useCallback(() => history.push(`/`), [history]);
 
   const handleClose = () => {
     setOpen(false);
+    goHome();
   };
 
   return (

@@ -30,8 +30,8 @@ const UserLogged: React.FunctionComponent = () => {
 
   return (
     <div>
-      <IconButton color="inherit" onClick={handleClick}>
-        <Avatar {...StringAvatar(name, lastname)} />
+      <IconButton onClick={handleClick}>
+        <Avatar {...StringAvatar(name, lastname)} classes={{ root: classes.root }} />
       </IconButton>
 
       <Menu

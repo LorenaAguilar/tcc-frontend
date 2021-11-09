@@ -7,7 +7,8 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import { Form, Formik } from 'formik';
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useHistory } from 'react-router-dom';
 import { object, string } from 'yup';
 import FormikInputPassword from '../../components/formikInputPassword/FormikInputPassword';
 import FormikInputText from '../../components/formikInputText/formikInputText';
@@ -21,10 +22,14 @@ interface Props {
 
 const Login: React.FunctionComponent<Props> = ({ isOpen, setIsOpen }) => {
   const classes = LoginPagesStyle();
+  const history = useHistory();
 
   const handleClose = () => {
     setIsOpen(false);
+    goHome();
   };
+
+  const goHome = useCallback(() => history.push(`/`), [history]);
 
   return (
     <Box>

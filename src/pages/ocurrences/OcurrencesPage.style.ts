@@ -23,6 +23,22 @@ const OcurrencesPageStyle = makeStyles(() =>
       alignContent: 'center',
       justifyContent: 'flex-end',
     },
+    notLogged: {
+      display: 'flex',
+      height: '80%',
+      alignItems: 'center',
+    },
+    notLoggedButton: {
+      color: '#d53d87',
+      fontSize: '29px',
+      fontFamily: 'Montserrat, sans-serif',
+      fontWeight: 500,
+      lineHeight: 1.2,
+      padding: '0px',
+      paddingTop: '2px',
+      borderBottom: 'solid',
+      borderRadius: 0,
+    },
   })
 );
 
