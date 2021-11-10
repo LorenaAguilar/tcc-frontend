@@ -7,6 +7,9 @@ export const startLoadOccurrences = createEvent('startLoadOccurrences');
 export const loadOccurrencesDone =
   createEvent<{ occurrences: Array<Occurrence> }>('loadOccurrencesDone');
 
+export const loadUserOccurrencesDone =
+  createEvent<{ occurrences: Array<Occurrence> }>('loadUserOccurrencesDone');
+
 export const loadOccurrenceFailed = createEvent('loadOccurrenceFailed');
 
 export const setSelectedOccurrence = createEvent<{ occurrenceId: string }>('setSelectedOccurrence');

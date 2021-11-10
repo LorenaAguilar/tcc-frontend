@@ -5,6 +5,7 @@ import {
   cleanHomePageStore,
   loadOccurrenceFailed,
   loadOccurrencesDone,
+  loadUserOccurrencesDone,
   onDeleteSuccess,
   onEditSuccess,
   setSelectedOccurrence,
@@ -15,6 +16,8 @@ import HomePageState from './HomePageState';
 const initialState: HomePageState = {
   isLoading: false,
   occurrences: [],
+  userOccurrences: [],
+  mode: 'OCCURRENCES',
   selectedOccurrenceId: '',
 };
 
@@ -76,6 +79,13 @@ const HomePageStore = createStore(initialState)
 
       return occurrence;
     });
+
+    return newState;
+  })
+  .on(loadUserOccurrencesDone, (state, { occurrences }) => {
+    const newState = cloneDeep(state);
+
+    newState.userOccurrences = occurrences;
 
     return newState;
   })

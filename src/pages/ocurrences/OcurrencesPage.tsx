@@ -4,7 +4,7 @@ import AddIcon from '@material-ui/icons/Add';
 import { useStoreMap } from 'effector-react';
 import React, { useEffect, useState } from 'react';
 import UserStore from '../../stores/user/UserStore';
-import listOccurrencesUseCase from '../../usecases/occurrences/listOccurrences/listOccurrencesUseCase';
+import ListUserOccurrencesUseCase from '../../usecases/occurrences/listOccurrences/listUserOccurrencesUseCase';
 import Login from '../login/LoginPage';
 import CreateOccurrenceModal from './components/createOccurrenceModal/CreateOccurrenceModal';
 import OccurrenceList from './components/occurrenceList/OccurrenceList';
@@ -15,7 +15,7 @@ const OccurrencesPage: React.FunctionComponent = () => {
   const [openLogin, setOpenLogin] = React.useState(false);
   const classes = OcurrencesPageStyle();
   useEffect(() => {
-    listOccurrencesUseCase();
+    ListUserOccurrencesUseCase();
   }, []);
 
   const token = useStoreMap({
