@@ -9,3 +9,7 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+.MuiToggleButton-root.Mui-selected {
+  background-color: #db5998 !important;
+}
