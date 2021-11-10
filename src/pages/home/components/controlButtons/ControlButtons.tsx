@@ -1,5 +1,6 @@
 import { ToggleButton, ToggleButtonGroup } from '@material-ui/lab';
 import React from 'react';
+import { setMode } from '../../../../stores/homePage/HomePageEvents';
 import ControlButtonUseStyles from './ControlButton.styles';
 
 const ControlButtons: React.FunctionComponent = () => {
@@ -9,6 +10,7 @@ const ControlButtons: React.FunctionComponent = () => {
 
   const handleAlignment = (event: React.MouseEvent<HTMLElement>, newAlignment: string | null) => {
     setAlignment(newAlignment);
+    setMode(newAlignment === 'left' ? 'OCCURRENCES' : 'RISK_ZONE');
   };
 
   return (

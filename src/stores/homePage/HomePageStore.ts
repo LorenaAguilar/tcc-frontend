@@ -8,6 +8,7 @@ import {
   loadUserOccurrencesDone,
   onDeleteSuccess,
   onEditSuccess,
+  setMode,
   setSelectedOccurrence,
   startLoadOccurrences,
 } from './HomePageEvents';
@@ -86,6 +87,13 @@ const HomePageStore = createStore(initialState)
     const newState = cloneDeep(state);
 
     newState.userOccurrences = occurrences;
+
+    return newState;
+  })
+  .on(setMode, (state, newMode) => {
+    const newState = cloneDeep(state);
+
+    newState.mode = newMode;
 
     return newState;
   })

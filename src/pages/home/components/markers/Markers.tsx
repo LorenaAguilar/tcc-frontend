@@ -12,8 +12,18 @@ const Markers: React.FunctionComponent = () => {
     keys: [],
     fn: (state) => state.occurrences,
   });
+
+  const mode = useStoreMap({
+    store: HomePageStore,
+    keys: [],
+    fn: (state) => state.mode,
+  });
+
   const [selected, setSelected] = useState<Occurrence | null>();
 
+  if (mode !== 'OCCURRENCES') {
+    return null;
+  }
   return (
     <>
       <MarkerClusterer>

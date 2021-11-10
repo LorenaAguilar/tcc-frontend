@@ -31,3 +31,5 @@ export const onEditSuccess = createEvent<{
     origin: OriginEnum;
   };
 }>('onEditSuccess');
+
+export const setMode = createEvent<'OCCURRENCES' | 'RISK_ZONE'>('setMode');
