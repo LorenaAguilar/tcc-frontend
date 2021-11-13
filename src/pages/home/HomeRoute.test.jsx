@@ -2,6 +2,8 @@ import { shallow } from 'enzyme';
 import React from 'react';
 import Container from '../../components/container/container';
 import listOccurrencesUseCase from '../../usecases/occurrences/listOccurrences/listOccurrencesUseCase';
+import Analytics from './components/analytics/Analytics';
+import ControlButtons from './components/controlButtons/ControlButtons';
 import Map from './components/map/Map';
 import Markers from './components/markers/Markers';
 import HomeRoute from './HomeRoute';
@@ -14,6 +16,8 @@ describe('HomeRoute', () => {
     const expectedWrapper = (
       <Container>
         <Map>
+          <ControlButtons />
+          <Analytics />
           <Markers />
         </Map>
       </Container>

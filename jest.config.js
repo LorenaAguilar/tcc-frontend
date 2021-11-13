@@ -18,6 +18,7 @@ module.exports = {
     '!src/reportWebVitals.ts',
     '!src/**/*.d.ts',
     '!src/themes/*.js',
+    '!src/clients/*.ts',
     '!src/constants.ts',
     '!src/assets/*.tsx',
     '!src/assets/*.svg',

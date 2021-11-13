@@ -49,8 +49,6 @@ describe('CreateOccurrenceModal', () => {
 
     expect(mockedSetSubmitting).toHaveBeenCalledTimes(1);
     expect(mockedSetSubmitting).toHaveBeenCalledWith(false);
-    expect(mockedOnClose).toHaveBeenCalledTimes(1);
-    expect(mockedOnClose).toHaveBeenCalledWith();
   });
 
   it('should render the form correctly', () => {
