@@ -3,7 +3,8 @@ import Cluster from '../../domains/Cluster';
 
 export const startLoadAnalytics = createEvent('startLoadAnalytics');
 
-export const loadAnalyticsDone = createEvent<Array<Cluster>>('loadAnalyticsDone');
+export const loadAnalyticsDone =
+  createEvent<{ clusters: Array<Cluster>; maxHistogramClass: number }>('loadAnalyticsDone');
 
 export const loadAnalyticsFailed = createEvent('loadAnalyticsFailed');
 

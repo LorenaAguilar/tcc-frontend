@@ -11,6 +11,7 @@ import AnalyticsState from './AnalyticsState';
 const initialState: AnalyticsState = {
   isLoading: false,
   clusters: [],
+  maxHistogramClass: 0,
 };
 
 const HomePageStore = createStore(initialState)
@@ -18,7 +19,8 @@ const HomePageStore = createStore(initialState)
     const newState = cloneDeep(state);
 
     newState.isLoading = false;
-    newState.clusters = payload;
+    newState.clusters = payload.clusters;
+    newState.maxHistogramClass = payload.maxHistogramClass;
 
     return newState;
   })

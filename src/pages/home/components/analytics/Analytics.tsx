@@ -11,10 +11,10 @@ const Markers: React.FunctionComponent = () => {
     fn: (state) => state.mode,
   });
 
-  const clusters = useStoreMap({
+  const { clusters, maxHistogramClass } = useStoreMap({
     store: AnalyticsStore,
     keys: [],
-    fn: (state) => state.clusters,
+    fn: (state) => state,
   });
 
   if (mode !== 'RISK_ZONE') {
@@ -27,7 +27,7 @@ const Markers: React.FunctionComponent = () => {
         <Circle
           key={`${cluster.lat}-${cluster.lng}`}
           location={{ lat: cluster.lat, lng: cluster.lng }}
-          color="green"
+          color={`rgb(200, 8, 8, ${(cluster.histogramClass + 1) / maxHistogramClass})`}
           size={cluster.radius * (cluster.radius === 0.5 ? 0 : 75000)}
         />
       ))}

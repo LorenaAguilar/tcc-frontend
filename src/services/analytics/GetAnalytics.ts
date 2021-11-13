@@ -4,11 +4,22 @@ import Cluster from '../../domains/Cluster';
 const endpoint = '/analytics';
 
 interface AnalyticsResponse {
-  clusters: Array<{ lat: number; lng: number; radius: number; color: string; id: string }>;
+  clusters: Array<{
+    lat: number;
+    lng: number;
+    radius: number;
+    color: string;
+    id: string;
+    histogramClass: number;
+  }>;
+  maxHistogramClass: number;
 }
 
-export default function getAnalytics(): Promise<Array<Cluster>> {
+export default function getAnalytics(): Promise<{
+  clusters: Array<Cluster>;
+  maxHistogramClass: number;
+}> {
   return restClient()
     .get<AnalyticsResponse>(endpoint)
-    .then((response) => response.data.clusters);
+    .then((response) => response.data);
 }

@@ -4,4 +4,5 @@ export default interface Cluster {
   radius: number;
   color: string;
   id: string;
+  histogramClass: number;
 }

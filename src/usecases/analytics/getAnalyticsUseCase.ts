@@ -10,8 +10,8 @@ import { addNotification } from '../../stores/notificationList/NotificationListE
 const getAnalyticsUseCase = async (): Promise<void> => {
   startLoadAnalytics();
   try {
-    const occurrences = await getAnalytics();
-    loadAnalyticsDone(occurrences);
+    const analytics = await getAnalytics();
+    loadAnalyticsDone(analytics);
   } catch (error) {
     loadAnalyticsFailed();
     addNotification({
