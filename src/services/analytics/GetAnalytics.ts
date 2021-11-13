@@ -1,5 +1,6 @@
 import restClient from '../../clients/RestClient';
 import Cluster from '../../domains/Cluster';
+import Occurrence from '../../domains/Occurrence';
 
 const endpoint = '/analytics';
 
@@ -11,6 +12,7 @@ interface AnalyticsResponse {
     color: string;
     id: string;
     histogramClass: number;
+    otherNodes: Array<Occurrence>;
   }>;
   maxHistogramClass: number;
 }

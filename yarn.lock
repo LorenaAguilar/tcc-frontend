@@ -5605,6 +5605,11 @@ gensync@^1.0.0-beta.1, gensync@^1.0.0-beta.2:
   resolved "https://registry.yarnpkg.com/gensync/-/gensync-1.0.0-beta.2.tgz#32a6ee76c3d7f52d46b2b1ae5d93fea8580a25e0"
   integrity sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg==
 
+geo-position.ts@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/geo-position.ts/-/geo-position.ts-1.4.1.tgz#0cbbc926c68752ddfe19383a2af7f482f216b48d"
+  integrity sha512-XGxxGbRBT6bVqbf9GpbQotuELf/OzXOQHmxPVtftB6fCLHlbuF+cYseekE/1UIHJ+OUcV9Jeoim+EjaVfJOFRw==
+
 get-caller-file@^2.0.1:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-2.0.5.tgz#4f94412a82db32f36e3b0b9741f8a97feb031f7e"
