@@ -1,5 +1,6 @@
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import React, { useEffect, useMemo, useState } from 'react';
+// import Alert from '../../../../assets/MyLocation.svg';
 import Container from '../../../../components/container/container';
 import { DEFAULT_MAP_ZOOM, GOOGLE_API_KEY } from '../../../../constants';
 import MapViewUseStyles from './MapView.styles';
@@ -35,7 +36,10 @@ const Map: React.FunctionComponent = ({ children }) => {
     <Container>
       <LoadScript googleMapsApiKey={GOOGLE_API_KEY}>
         <GoogleMap mapContainerClassName={container} center={location} zoom={zoom}>
-          {children ?? null}
+          <>
+            {/* <Marker position={location} icon={Alert} /> */}
+            {children ?? null}
+          </>
         </GoogleMap>
       </LoadScript>
     </Container>
