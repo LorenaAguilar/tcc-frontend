@@ -1,4 +1,3 @@
-import { Polygon } from '@react-google-maps/api';
 import { useStoreMap } from 'effector-react';
 import { GeoPosition } from 'geo-position.ts';
 import React from 'react';
@@ -23,19 +22,6 @@ const Markers: React.FunctionComponent = () => {
     return null;
   }
 
-  const options = {
-    fillColor: 'lightblue',
-    fillOpacity: 1,
-    strokeColor: 'red',
-    strokeOpacity: 1,
-    strokeWeight: 2,
-    clickable: false,
-    draggable: false,
-    editable: false,
-    geodesic: false,
-    zIndex: 1,
-  };
-
   return (
     <>
       {clusters.map((cluster) => {
@@ -47,24 +33,12 @@ const Markers: React.FunctionComponent = () => {
         }, 0);
 
         return (
-          <>
-            {cluster.otherNodes.map((node) => (
-              <Polygon
-                key={`line-${cluster.lat}-${cluster.lng}`}
-                options={options}
-                paths={[
-                  { lat: cluster.lat, lng: cluster.lng },
-                  { lat: node.location.lat, lng: node.location.lng },
-                ]}
-              />
-            ))}
-            <Circle
-              key={`${cluster.lat}-${cluster.lng}`}
-              location={{ lat: cluster.lat, lng: cluster.lng }}
-              color={`rgb(200, 8, 8, ${(cluster.histogramClass + 1) / maxHistogramClass})`}
-              size={radius}
-            />
-          </>
+          <Circle
+            key={`${cluster.lat}-${cluster.lng}`}
+            location={{ lat: cluster.lat, lng: cluster.lng }}
+            color={`rgb(200, 8, 8, ${(cluster.histogramClass + 1) / maxHistogramClass})`}
+            size={radius}
+          />
         );
       })}
     </>
