@@ -1,5 +1,5 @@
-import React, { useMemo } from 'react';
 import { Circle as CircleComponent } from '@react-google-maps/api';
+import React, { useMemo } from 'react';
 
 interface Props {
   location: google.maps.LatLngLiteral;
@@ -11,10 +11,10 @@ const Circle: React.FunctionComponent<Props> = ({ location, size, color }) => {
   const options = useMemo(
     () => ({
       strokeColor: color,
-      strokeOpacity: 0.8,
+      strokeOpacity: 0.6,
       strokeWeight: 2,
       fillColor: color,
-      fillOpacity: 0.35,
+      fillOpacity: 0.6,
       clickable: false,
       draggable: false,
       editable: false,
