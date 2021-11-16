@@ -27,7 +27,7 @@ const InformationWindow: React.FunctionComponent<Props> = ({
   );
 
   const formattedTitle = useMemo(() => {
-    //  const types = ['Baixa Iluminação', 'Iluminação Inexistente', 'Assédio Sexual', 'Morte', 'Assalto'];
+    //  const types = ['Baixa Iluminação', 'Iluminação Inexistente', 'Importunação Sexual', 'Morte', 'Assalto'];
     if (occurrenceSelected.type.toLowerCase() === 'iluminação inexistente') {
       switch (occurrenceSelected?.origin) {
         case OriginEnum.COLETEI_UMA_SITUACAO_DO_NOTICIARIO:
@@ -54,7 +54,10 @@ const InformationWindow: React.FunctionComponent<Props> = ({
       }
     }
 
-    if (occurrenceSelected.type.toLowerCase() === 'morte') {
+    if (
+      occurrenceSelected.type.toLowerCase() === 'importunação sexual' ||
+      occurrenceSelected.type.toLowerCase() === 'morte'
+    ) {
       switch (occurrenceSelected?.origin) {
         case OriginEnum.COLETEI_UMA_SITUACAO_DO_NOTICIARIO:
           return `No noticiário, alguém viu uma ${occurrenceSelected.type.toLocaleLowerCase()} aqui`;
@@ -67,10 +70,7 @@ const InformationWindow: React.FunctionComponent<Props> = ({
       }
     }
 
-    if (
-      occurrenceSelected.type.toLowerCase() === 'assédio sexual' ||
-      occurrenceSelected.type.toLowerCase() === 'assalto'
-    ) {
+    if (occurrenceSelected.type.toLowerCase() === 'assalto') {
       switch (occurrenceSelected?.origin) {
         case OriginEnum.COLETEI_UMA_SITUACAO_DO_NOTICIARIO:
           return `No noticiário, alguém viu um ${occurrenceSelected.type.toLocaleLowerCase()} aqui`;

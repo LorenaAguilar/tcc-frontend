@@ -16,7 +16,13 @@ interface Props {
   onClose: () => void;
 }
 
-const types = ['Baixa Iluminação', 'Iluminação Inexistente', 'Assédio Sexual', 'Morte', 'Assalto'];
+const types = [
+  'Baixa Iluminação',
+  'Iluminação Inexistente',
+  'Importunação Sexual',
+  'Morte',
+  'Assalto',
+];
 const origins = [
   { label: 'Fui vitima de uma situação', value: OriginEnum.FUI_VITIMA_DE_UMA_SITUACAO },
   { label: 'Testemunhei uma situação', value: OriginEnum.TESTEMUNHEI_UMA_SITUACAO },
