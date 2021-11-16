@@ -7,11 +7,11 @@ const useHelpRouteStyles = makeStyles(() =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
+      overflowY: 'auto',
     },
     information: {
       backgroundColor: '#fadce68f',
       width: '75%',
-      height: '100%',
       borderLeft: '2px solid #d53d87',
       borderRight: '2px solid #d53d87',
       padding: 32,

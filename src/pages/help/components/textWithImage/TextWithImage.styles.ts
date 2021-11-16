@@ -7,9 +7,18 @@ const useTextWithImageStyles = makeStyles(() =>
       alignItems: 'center',
     },
     media: {
-      backgroundColor: '#fadce68f',
-      height: 'auto',
-      width: 'auto',
+      maxWidth: '33.34%',
+      marginRight: 16,
+    },
+    firstText: {
+      textIndent: 16,
+    },
+    otherTexts: {
+      paddingTop: 8,
+      textIndent: 16,
+    },
+    titleStyle: {
+      marginBottom: 32,
     },
   })
 );

@@ -22,6 +22,16 @@ const HelpRoute: React.FunctionComponent = () => {
           text="A aplicação BH mais segura para elas é uma plataforma digital colaborativa que registra locais com baixa iluminação, casos de assédio, assaltos e mortes na cidade de Belo Horizonte."
           imagePath={OccurrenceAndRiskZoneImage}
         />
+        <TextWithImage
+          title="Login"
+          text="A aplicação BH mais segura para elas é uma plataforma digital colaborativa que registra locais com baixa iluminação, casos de assédio, assaltos e mortes na cidade de Belo Horizonte."
+          imagePath={OccurrenceAndRiskZoneImage}
+        />
+        <TextWithImage
+          title="Login"
+          text="A aplicação BH mais segura para elas é uma plataforma digital colaborativa que registra locais com baixa iluminação, casos de assédio, assaltos e mortes na cidade de Belo Horizonte."
+          imagePath={OccurrenceAndRiskZoneImage}
+        />
         <div className={classes.icon}>
           <WomanIcon />
         </div>

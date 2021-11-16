@@ -6,8 +6,9 @@ const OcurrencesPageStyle = makeStyles(() =>
       height: 'calc(100vh - 10vh - 7vh)',
       display: 'flex',
       flexDirection: 'column',
-      margin: 32,
+      padding: 32,
       alignItems: 'center',
+      overflowY: 'auto',
     },
     content: {
       height: '100%',
