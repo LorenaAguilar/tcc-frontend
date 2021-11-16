@@ -23,8 +23,9 @@ const Header: React.FunctionComponent = () => {
         <h1 className={classes.title}>BH mais segura para elas</h1>
       </div>
       <div className={classes.optionsContainer}>
-        <OptionMenu title="Home" toUrl="" />
-        <OptionMenu title="Ocorrência" toUrl="occurrences" />
+        <OptionMenu title="Mapa" toUrl="" />
+        <OptionMenu title="Ocorrências" toUrl="occurrences" />
+        <OptionMenu title="Ajuda" toUrl="help" />
         <OptionMenu title="Sobre nós" toUrl="aboutus" />
         {token && <UserLogged />}
         {!token && <UserNotLogged />}
