@@ -4,11 +4,12 @@ const useTextWithImageStyles = makeStyles(() =>
   createStyles({
     container: {
       display: 'flex',
-      alignItems: 'center',
+      flex: 1,
+      justifyContent: 'center',
     },
     media: {
       maxWidth: '33.34%',
-      marginRight: 16,
+      margin: 16,
     },
     firstText: {
       textIndent: 16,

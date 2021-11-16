@@ -7,6 +7,7 @@ const AboutUsInformationStyles = makeStyles(() =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
+      overflowY: 'auto',
     },
     information: {
       backgroundColor: '#fadce68f',
