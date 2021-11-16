@@ -8,7 +8,7 @@ const useTextWithImageStyles = makeStyles(() =>
       justifyContent: 'center',
     },
     media: {
-      maxWidth: '33.34%',
+      maxWidth: '50%',
       margin: 16,
     },
     firstText: {
