@@ -10,6 +10,7 @@ const useTextWithImageStyles = makeStyles(() =>
     media: {
       maxWidth: '50%',
       margin: 16,
+      border: '2px solid #000000',
     },
     firstText: {
       textIndent: 16,
