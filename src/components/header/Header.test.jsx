@@ -28,8 +28,9 @@ describe('Header', () => {
           <h1 className="title">BH mais segura para elas</h1>
         </div>
         <div>
-          <OptionMenu title="Home" toUrl="" />
-          <OptionMenu title="Ocorrência" toUrl="occurrences" />
+          <OptionMenu title="Mapa" toUrl="" />
+          <OptionMenu title="Ocorrências" toUrl="occurrences" />
+          <OptionMenu title="Ajuda" toUrl="help" />
           <OptionMenu title="Sobre nós" toUrl="aboutus" />
           <UserLogged />
         </div>
@@ -50,8 +51,9 @@ describe('Header', () => {
           <h1 className="title">BH mais segura para elas</h1>
         </div>
         <div>
-          <OptionMenu title="Home" toUrl="" />
-          <OptionMenu title="Ocorrência" toUrl="occurrences" />
+          <OptionMenu title="Mapa" toUrl="" />
+          <OptionMenu title="Ocorrências" toUrl="occurrences" />
+          <OptionMenu title="Ajuda" toUrl="help" />
           <OptionMenu title="Sobre nós" toUrl="aboutus" />
           <UserNotLogged />
         </div>

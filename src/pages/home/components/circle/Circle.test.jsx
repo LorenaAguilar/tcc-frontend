@@ -1,6 +1,6 @@
-import React from 'react';
-import { shallow } from 'enzyme';
 import { Circle as CircleComponent } from '@react-google-maps/api';
+import { shallow } from 'enzyme';
+import React from 'react';
 import Circle from './Circle';
 
 describe('Circle', () => {
@@ -17,10 +17,10 @@ describe('Circle', () => {
 
     const options = {
       strokeColor: propsMock.color,
-      strokeOpacity: 0.8,
+      strokeOpacity: 0.6,
       strokeWeight: 2,
       fillColor: propsMock.color,
-      fillOpacity: 0.35,
+      fillOpacity: 0.6,
       clickable: false,
       draggable: false,
       editable: false,
