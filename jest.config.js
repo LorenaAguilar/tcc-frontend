@@ -13,6 +13,7 @@ module.exports = {
   coverageReporters: ['cobertura', 'html', 'lcov', 'text-summary', 'text'],
   collectCoverageFrom: [
     'src/**/*.{js,jsx,ts,tsx}',
+    '!src/components/formikAutoCompletePlaces/*.{ts,js,jsx,tsx}',
     '!src/index.tsx',
     '!src/**/*.{styles,style}.{ts,js,jsx,tsx}',
     '!src/reportWebVitals.ts',
