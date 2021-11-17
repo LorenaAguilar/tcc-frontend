@@ -19,19 +19,18 @@ export default function getPlaceInformationsByPlaceId(
 ): Promise<OccurrenceLocationWithIsFromBR | null> {
   return restClient('https://maps.googleapis.com/maps/api/')
     .post<GoogleResponse>(endpoint(placeId))
-    .then((response) => placeInformationsToLocation(response.data.results))
-    .catch((error) => error);
+    .then((response) => placeInformationsToLocation(response.data.results));
 }
 
 const placeInformationsToLocation = (
   placeInformations: Array<PlaceInformations>
 ): OccurrenceLocationWithIsFromBR | null => {
-  const isFromBH =
-    placeInformations[0].address_components.find(
-      (addressComponent) => addressComponent.types[0] === 'administrative_area_level_2'
-    )?.long_name === 'Belo Horizonte';
-
   if (placeInformations?.[0]) {
+    const isFromBH =
+      placeInformations[0].address_components.find(
+        (addressComponent) => addressComponent.types[0] === 'administrative_area_level_2'
+      )?.long_name === 'Belo Horizonte';
+
     return {
       address: placeInformations?.[0].formatted_address,
       lat: placeInformations?.[0].geometry.location.lat,
