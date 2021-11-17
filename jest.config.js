@@ -14,7 +14,7 @@ module.exports = {
   collectCoverageFrom: [
     'src/**/*.{js,jsx,ts,tsx}',
     '!src/index.tsx',
-    '!src/**/*.styles.ts',
+    '!src/**/*.{styles,style}.{ts,js,jsx,tsx}',
     '!src/reportWebVitals.ts',
     '!src/**/*.d.ts',
     '!src/themes/*.js',
@@ -25,10 +25,10 @@ module.exports = {
   ],
   coverageThreshold: {
     global: {
-      branches: 95,
-      lines: 95,
-      functions: 95,
-      statements: 95,
+      branches: 90,
+      lines: 90,
+      functions: 90,
+      statements: 90,
     },
   },
 };

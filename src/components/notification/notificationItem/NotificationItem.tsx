@@ -29,9 +29,8 @@ export default function NotificationItemView({
       case 'SUCCESS':
         return <CheckCircle className={classes.icon} />;
       case 'ERROR':
-        return <MaterialError className={classes.icon} />;
       default:
-        return null;
+        return <MaterialError className={classes.icon} />;
     }
   }, [type, classes]);
 
@@ -52,9 +51,8 @@ export default function NotificationItemView({
       case 'SUCCESS':
         return `${classes.content} ${classes.SUCCESS}`;
       case 'ERROR':
-        return `${classes.content} ${classes.ERROR}`;
       default:
-        return classes.content;
+        return `${classes.content} ${classes.ERROR}`;
     }
   }, [type, classes]);
 
