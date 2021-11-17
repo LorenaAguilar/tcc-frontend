@@ -14,7 +14,7 @@ const initialState: AnalyticsState = {
   maxHistogramClass: 0,
 };
 
-const HomePageStore = createStore(initialState)
+const AnalyticsStore = createStore(initialState)
   .on(loadAnalyticsDone, (state, payload) => {
     const newState = cloneDeep(state);
 
@@ -40,4 +40,4 @@ const HomePageStore = createStore(initialState)
   })
   .reset(cleanAnalyticsStore);
 
-export default HomePageStore;
+export default AnalyticsStore;
