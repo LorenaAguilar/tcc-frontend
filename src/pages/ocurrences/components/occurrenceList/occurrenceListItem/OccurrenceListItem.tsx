@@ -28,7 +28,7 @@ const OccurrenceListItem: React.FunctionComponent<Props> = ({ occurrenceId }) =>
   const occurrence = useStoreMap({
     store: HomePageStore,
     keys: [],
-    fn: (state) => state.occurrences.find(({ id }) => occurrenceId === id),
+    fn: (state) => state.userOccurrences.find(({ id }) => occurrenceId === id),
   });
 
   const formattedTime = useMemo(

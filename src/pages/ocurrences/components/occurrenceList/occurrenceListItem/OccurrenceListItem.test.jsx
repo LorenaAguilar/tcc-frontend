@@ -34,11 +34,11 @@ describe('OccurrenceListItem', () => {
     description: 'description',
   };
   const mockedHomePageDefaultState = {
-    occurrences: [occurrence],
+    userOccurrences: [occurrence],
   };
 
   it('should render correctly', () => {
-    useStoreMap.mockReturnValueOnce(mockedHomePageDefaultState.occurrences[0]);
+    useStoreMap.mockReturnValueOnce(mockedHomePageDefaultState.userOccurrences[0]);
 
     const wrapper = shallow(<OccurrenceListItem occurrenceId={occurrenceIdDefault} />);
 
@@ -81,7 +81,7 @@ describe('OccurrenceListItem', () => {
     expect(useStoreMap.mock.calls[0][0].store).toBe(HomePageStore);
     expect(useStoreMap.mock.calls[0][0].keys).toEqual([]);
     expect(useStoreMap.mock.calls[0][0].fn(mockedHomePageDefaultState)).toEqual(
-      mockedHomePageDefaultState.occurrences[0]
+      mockedHomePageDefaultState.userOccurrences[0]
     );
   });
 
@@ -95,7 +95,7 @@ describe('OccurrenceListItem', () => {
     'should render correctly when the origin is $formattedOrigin',
     ({ formattedOrigin, originEnum }) => {
       useStoreMap.mockReturnValueOnce({
-        ...mockedHomePageDefaultState.occurrences[0],
+        ...mockedHomePageDefaultState.userOccurrences[0],
         origin: originEnum,
       });
 
