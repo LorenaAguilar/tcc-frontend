@@ -1,3 +1,4 @@
+import { useStoreMap } from 'effector-react';
 import { shallow } from 'enzyme';
 import { Formik } from 'formik';
 import React from 'react';
@@ -7,10 +8,13 @@ import FormikInputSelect from '../../../../components/formikInputSelect/FormikIn
 import FormikInputText from '../../../../components/formikInputText/formikInputText';
 import FormikInputTime from '../../../../components/formikInputTime/FormikInputTime';
 import Modal from '../../../../components/modal/Modal';
+import OriginEnum from '../../../../domains/OriginEnum';
+import HomePageStore from '../../../../stores/homePage/HomePageStore';
 import useEditOccorrenceModalStyles from './EditOccorrenceModal.styles';
 import EditOccorrenceModal from './EditOccurrenceModal';
 
 jest.mock('./EditOccorrenceModal.styles');
+jest.mock('effector-react');
 mockUseStyles(useEditOccorrenceModalStyles, ['container']);
 
 describe('EditOccorrenceModal', () => {
@@ -104,5 +108,25 @@ describe('EditOccorrenceModal', () => {
     expect(mockedOnClose).toHaveBeenCalledWith();
     expect(mockedFormikProps.resetForm).toHaveBeenCalledTimes(1);
     expect(mockedFormikProps.resetForm).toHaveBeenCalledWith();
+  });
+
+  it('should select the correct values from the store', () => {
+    const occurrence = {
+      id: '1',
+      location: { lat: 1, lng: 2, address: 'address' },
+      dateTime: new Date(),
+      origin: OriginEnum.COLETEI_UMA_SITUACAO_DO_NOTICIARIO,
+      description: 'description',
+    };
+    const mockedHomePageDefaultState = {
+      occurrences: [occurrence],
+    };
+    shallow(<EditOccorrenceModal occurrenceId="1" />);
+
+    expect(useStoreMap.mock.calls[0][0].store).toBe(HomePageStore);
+    expect(useStoreMap.mock.calls[0][0].keys).toEqual([]);
+    expect(useStoreMap.mock.calls[0][0].fn(mockedHomePageDefaultState)).toEqual(
+      mockedHomePageDefaultState.occurrences[0]
+    );
   });
 });

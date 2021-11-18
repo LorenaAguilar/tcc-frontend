@@ -2,6 +2,7 @@ import { useStoreMap } from 'effector-react';
 import { shallow } from 'enzyme';
 import React from 'react';
 import OriginEnum from '../../../../domains/OriginEnum';
+import HomePageStore from '../../../../stores/homePage/HomePageStore';
 import OccurrenceList from './OccurrenceList';
 import OccurrenceListItem from './occurrenceListItem/OccurrenceListItem';
 
@@ -34,5 +35,17 @@ describe('OccurrenceList', () => {
       </>
     );
     expect(wrapper.matchesElement(expectedWrapper)).toBe(true);
+  });
+
+  it('should select the correct values from the store', () => {
+    useStoreMap.mockReturnValueOnce(mockedHomePageDefaultState.userOccurrences);
+
+    shallow(<OccurrenceList />);
+
+    expect(useStoreMap.mock.calls[0][0].store).toBe(HomePageStore);
+    expect(useStoreMap.mock.calls[0][0].keys).toEqual([]);
+    expect(useStoreMap.mock.calls[0][0].fn(mockedHomePageDefaultState)).toEqual(
+      mockedHomePageDefaultState.userOccurrences
+    );
   });
 });
