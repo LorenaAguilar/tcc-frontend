@@ -30,6 +30,7 @@ jobs:
         run: yarn jest
         
   deploy-dev:
+    needs: build
     name: Deploy to DEV - Heroku
     runs-on: ubuntu-latest
     steps:
@@ -51,5 +52,3 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: womens-map
           heroku_email: ${{secrets.HEROKU_EMAIL}}
-     
-      
