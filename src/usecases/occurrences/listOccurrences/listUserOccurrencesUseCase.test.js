@@ -2,7 +2,7 @@ import TypeNotification from '../../../domains/Notification';
 import listUserOccurrencesService from '../../../services/occurrences/listUserOccurrences';
 import * as HomePageEvents from '../../../stores/homePage/HomePageEvents';
 import * as NotificationListEvents from '../../../stores/notificationList/NotificationListEvents';
-import ListUserOccurrencesUseCase from './ListUserOccurrencesUseCase';
+import ListUserOccurrencesUseCase from './listUserOccurrences';
 
 jest.mock('../../../services/occurrences/listUserOccurrences');
 
