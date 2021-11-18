@@ -15,6 +15,7 @@ module.exports = {
     'src/**/*.{js,jsx,ts,tsx}',
     '!src/components/formikAutoCompletePlaces/*.{ts,js,jsx,tsx}',
     '!src/index.tsx',
+    '!src/pages/home/components/infoWindow/InfoWindow.tsx',
     '!src/**/*.{styles,style}.{ts,js,jsx,tsx}',
     '!src/reportWebVitals.ts',
     '!src/**/*.d.ts',
