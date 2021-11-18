@@ -4,8 +4,6 @@ import * as HomePageEvents from '../../../stores/homePage/HomePageEvents';
 import * as NotificationListEvents from '../../../stores/notificationList/NotificationListEvents';
 import ListUserOccurrencesUseCase from './listUserOccurrencesUseCase';
 
-jest.mock('../../../services/occurrences/listUserOccurrencesUseCase');
-
 describe('ListUserOccurrencesUseCase', () => {
   it('should run correctly', async () => {
     const mockedListOccurrencesServiceReturn = [{ occurrenceId: '1' }, { occurrenceId: '2' }];
